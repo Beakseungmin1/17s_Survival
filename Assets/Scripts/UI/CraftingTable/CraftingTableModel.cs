@@ -4,14 +4,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 
-[System.Serializable]
-public class Slots
-{
-    public ItemBase item = null;
-    public int itemCount = 0;
-}
-
-
 public class CraftingTableModel : MonoBehaviour
 {
     [Header("건축물")]
@@ -20,6 +12,6 @@ public class CraftingTableModel : MonoBehaviour
     [Header("장식물")]
     public DecorationItem[] decorationItems = null;
 
-    [Header("인벤토리")]
-    public Slots[] slots = null;
+    [Header("인벤토리")] // after delete
+    public Slot[] slots = null;
 }
