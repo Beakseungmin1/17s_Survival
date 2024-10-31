@@ -1,4 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
+
+[System.Serializable]
+public class NeedItem
+{
+    public ItemBase needItem;
+    public int needCount;
+}
 
 
 [CreateAssetMenu(fileName = "ItemBase", menuName = "ItemBase/", order = 0)]

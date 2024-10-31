@@ -2,5 +2,6 @@ public enum ItemType
 {
     Equipment,
     Consumable,
-    Building
+    Building,
+    Decoration
 }
