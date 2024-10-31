@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20c63aa3ca07b3b439b4862ed5a5353a, type: 3}
-  m_Name: WoodenBoard
+  m_Name: Axe
   m_EditorClassIdentifier: 
-  itemName: "\uB098\uBB34 \uD310\uC790"
-  itemDescription: "\uB098\uBB34\uB85C \uB9CC\uB4E0 \uD310\uC790\uC785\uB2C8\uB2E4."
+  itemName: "\uB3C4\uB07C"
+  itemDescription: "\uB098\uBB34\uB97C \uBC38 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
   itemIcon: {fileID: 0}
-  itemType: 4
+  itemType: 0
   itemPrefabs: {fileID: 0}
-  isCanStack: 1
-  maxStack: 10
+  isCanStack: 0
+  maxStack: 0
   requireItem:
-  - {fileID: 11400000, guid: 85df6b8796276c142b03a97aeea8eb88, type: 2}
+  - {fileID: 11400000, guid: 001daeda22403f0478bf54ce1a61f941, type: 2}

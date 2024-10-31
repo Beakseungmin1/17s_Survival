@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class ResourceGenerator : MonoBehaviour
 {
-    public GameObject[] resourcePrefab;
-    private const float DELAY = 10f;
+    private const float DELAY = 5f;
     private float delay = DELAY;
     private int count;
     private ResourceItemPool resourceItemPool;
     private int typeCount;
+
+    private const float DESTROYTIME = 6f;
+    private float destroyTime = DESTROYTIME;
 
     private void Awake()
     {
@@ -20,11 +22,10 @@ public class ResourceGenerator : MonoBehaviour
 
     private void Generate()
     {
-        int resourceIndex = Random.Range(0, resourcePrefab.Length);
-        int type = Random.Range(0, typeCount);
-        GameObject newResource = resourceItemPool.SpawnFromPool((ResourceType)type);
+        int randomTag = Random.Range(0, typeCount);
+        GameObject newResource = resourceItemPool.SpawnFromPool((ResourceType)randomTag);
         // TODO : width, height 구하여 전체 맵에 적절히 설정하기
-        newResource.transform.position = new Vector2(Random.Range(0, 1920), Random.Range(0, 1080));
+        newResource.transform.position = new Vector3(Random.Range(0, 1000), 10, Random.Range(0, 1000));
     }
 
     private void Update()
@@ -34,6 +35,16 @@ public class ResourceGenerator : MonoBehaviour
         {
             delay = DELAY;
             Generate();
+        }
+
+        if (destroyTime > 0) destroyTime -= Time.deltaTime;
+        else
+        {
+            destroyTime = DESTROYTIME;
+            int randomTag = Random.Range(0, typeCount);
+            GameObject obj = resourceItemPool.PoolDictionary[(ResourceType)randomTag].Dequeue();
+            obj.SetActive(false);
+            resourceItemPool.PoolDictionary[(ResourceType)randomTag].Enqueue(obj);
         }
     }
 }
