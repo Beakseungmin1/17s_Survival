@@ -5,7 +5,8 @@ public enum ItemType
     Building,
     Decoration,
     ReSource,
-    Manufacture
+    Manufacture,
+    Decoration
 }
 
 public enum ResourceType
