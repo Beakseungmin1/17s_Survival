@@ -1,0 +1,64 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerCondition : MonoBehaviour
+{
+    public UICondition uiCondition;
+
+    Condition health { get { return uiCondition.health; } }
+    Condition hunger { get { return uiCondition.hunger; } }
+    Condition water { get { return uiCondition.water; } }
+    Condition stamina { get { return uiCondition.stamina; } }
+
+    public float noHungerHealthDecay;
+
+    private void Update()
+    {
+        // 기본적으로 재생되는 체력과 스태미나
+        health.Add(health.passiveValue * Time.deltaTime);
+        stamina.Add(stamina.passiveValue * Time.deltaTime);
+
+
+        // 기본적으로 다는 허기와갈증
+        hunger.Subtract(hunger.passiveValue * Time.deltaTime);
+        water.Subtract(water.passiveValue * Time.deltaTime);
+
+
+        if (hunger.curValue <= 0f || water.curValue <= 0f)
+        {
+            health.Subtract(noHungerHealthDecay * Time.deltaTime);
+        }
+
+        if (health.curValue <= 0f)
+        {
+            Die();
+        }
+
+    }
+
+    public void Heal(float amount)
+    {
+        health.Add(amount);
+    }
+
+    // 배고픔을 채우는 함수
+    public void EatFood(float amount)
+    {
+        hunger.Add(amount);
+    }
+
+    // 갈증을 채우는 함수
+    public void DrinkWater(float amount)
+    {
+        water.Add(amount);
+    }
+
+
+
+
+    public void Die()
+    {
+        Debug.Log("죽음");
+    }
+}

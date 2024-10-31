@@ -2,5 +2,15 @@ public enum ItemType
 {
     Equipment,
     Consumable,
-    Building
+    Building,
+    Decoration,
+    ReSource,
+    Manufacture
+}
+
+public enum ResourceType
+{
+    Wood,
+    Rock,
+    Flower,
 }
