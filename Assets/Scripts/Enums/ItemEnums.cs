@@ -6,7 +6,6 @@ public enum ItemType
     Decoration,
     ReSource,
     Manufacture,
-    Decoration
 }
 
 public enum ResourceType
