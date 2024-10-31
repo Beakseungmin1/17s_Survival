@@ -4,12 +4,13 @@ public enum ItemType
     Consumable,
     Building,
     ReSource,
-    Manufacture
+    Manufacture,
+    Decoration
 }
 
 public enum ResourceType
 {
     Wood,
     Rock,
-    £Ælower,
+    Flower,
 }
