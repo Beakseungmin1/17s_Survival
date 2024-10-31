@@ -103,12 +103,12 @@ public class CraftingTablePresenter : MonoBehaviour
     }
 
 
-    private void ApplyMakeItem(Dictionary<int, int> itemsToConsume, BuildingItem buildingItem)
+    private void ApplyMakeItem(Dictionary<int, int> itemsToConsume, ItemBase item)
     {
-        foreach (var item in itemsToConsume)
+        foreach (var Selecteditem in itemsToConsume)
         {
-            int slotIndex = item.Key;
-            int consumeCount = item.Value;
+            int slotIndex = Selecteditem.Key;
+            int consumeCount = Selecteditem.Value;
 
             craftingTableModel.slots[slotIndex].itemCount -= consumeCount; // reduce quantity
 
@@ -117,28 +117,29 @@ public class CraftingTablePresenter : MonoBehaviour
                 // slot[i].itemCount <= clearSlot 
             }
 
-            // inventory ui refresh
+            AddItemToInventory(item);
         }
+    }
+
+    private void AddItemToInventory(ItemBase item)
+    {
 
         for (int i = 0; i < craftingTableModel.slots.Length; i++) // have empty slot
         {
             if (craftingTableModel.slots[i].item == null)
             {
-                Debug.Log("인벤에 넣음");
-                craftingTableModel.slots[i].item = buildingItem;
+                craftingTableModel.slots[i].item = item;
                 craftingTableModel.slots[i].itemCount++;
                 break;
             }
 
             // inventory ui refresh
+            ThrowItem(item);
         }
-
-        ThrowItem(buildingItem);
     }
 
-    private void ThrowItem(BuildingItem buildingItem)
+    private void ThrowItem(ItemBase Item)
     {
-        Debug.Log("땅에 떨금");
-        Instantiate(buildingItem.itemPrefabs, transform.position, Quaternion.identity);
+        Instantiate(Item.itemPrefabs, transform.position, Quaternion.identity);
     }
 }
