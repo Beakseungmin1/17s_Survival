@@ -7,13 +7,17 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Moverment")]
     public float moveSpeed;
+    public float JumpPower;
     private Vector2 curMoveMentInput;
+    public LayerMask groundLayerMask;
 
     [Header("Look")]
+    public Transform cameraContainer;
     public float minXLook;
     public float maxXLook;
     private float camCurXRot;
     public float lookSensitivity;
+    private Vector2 mouseDelta;
 
 
     private Rigidbody _rigidbody;
@@ -42,6 +46,19 @@ public class PlayerController : MonoBehaviour
         _rigidbody.velocity = dir;
     }
 
+    private void LateUpdate()
+    {
+        CameraLook();
+    }
+
+    void CameraLook()
+    {
+        camCurXRot += mouseDelta.y * lookSensitivity;
+        camCurXRot = Mathf.Clamp(camCurXRot, minXLook, maxXLook);
+        cameraContainer.localEulerAngles = new Vector3(-camCurXRot, 0, 0);
+        transform.eulerAngles += new Vector3(0, mouseDelta.x * lookSensitivity);
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         if(context.phase == InputActionPhase.Performed)
@@ -54,4 +71,38 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if(context.phase == InputActionPhase.Started && isGrounded())
+        {
+            _rigidbody.AddForce(Vector2.up * JumpPower, ForceMode.Impulse);
+        }
+    }
+
+    public void OnLook(InputAction.CallbackContext context)
+    {
+        mouseDelta = context.ReadValue<Vector2>();
+    }
+
+    bool isGrounded()
+    {
+        Ray[] rays = new Ray[4]
+        {
+            new Ray(transform.position + (transform.forward * 0.2f) + transform.up * 0.01f, Vector3.down),
+            new Ray(transform.position + (-transform.forward * 0.2f) + transform.up * 0.01f, Vector3.down),
+            new Ray(transform.position + (transform.right * 0.2f) + transform.up * 0.01f, Vector3.down),
+            new Ray(transform.position + (-transform.right * 0.2f) + transform.up * 0.01f, Vector3.down)
+        };
+
+        for(int i = 0; i < rays.Length; i++)
+        {
+            // rays에 있는 레이의, 0.1f 길이만큼, groundlayermask 에 포함되는 레이어만 
+            if (Physics.Raycast(rays[i], 0.1f, groundLayerMask))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
