@@ -11,7 +11,9 @@ public class CraftingTablePresenter : MonoBehaviour
     [SerializeField] private CraftingTableView[] _buildingViews;
     [SerializeField] private CraftingTableView[] _decorationViews;
 
-    private CraftingTableModel craftingTableModel;
+    [SerializeField] private InventoryManager _inventoryManager;
+    private CraftingTableModel _craftingTableModel;
+    [SerializeField] private SlotModel _slotModel;
 
 
     private void Awake()
@@ -19,7 +21,7 @@ public class CraftingTablePresenter : MonoBehaviour
         _buildingViews = _buildingViewsParents.GetComponentsInChildren<CraftingTableView>();
         _decorationViews = _decorationViewsParents.GetComponentsInChildren<CraftingTableView>();
 
-        craftingTableModel = GetComponent<CraftingTableModel>();
+        _craftingTableModel = GetComponent<CraftingTableModel>();
     }
 
 
@@ -33,8 +35,8 @@ public class CraftingTablePresenter : MonoBehaviour
     {
         for (int i = 0; i < _buildingViews.Length; i++)
         {
-            _buildingViews[i].DisplayItem(craftingTableModel.buildingItems[i].itemIcon, i, ItemType.Building);
-            _decorationViews[i].DisplayItem(craftingTableModel.decorationItems[i].itemIcon, i, ItemType.Decoration);
+            _buildingViews[i].DisplayItem(_craftingTableModel.buildingItems[i].itemIcon, i, ItemType.Building);
+            _decorationViews[i].DisplayItem(_craftingTableModel.decorationItems[i].itemIcon, i, ItemType.Decoration);
         }
     }
 
@@ -55,44 +57,44 @@ public class CraftingTablePresenter : MonoBehaviour
 
     private void CheckEnoughItems(int itemNumber)
     {
-        BuildingItem buildingItem = craftingTableModel.buildingItems[itemNumber];
+        BuildingItemSO buildingItem = _craftingTableModel.buildingItems[itemNumber];
 
         CheckQuantity(buildingItem);
     }
 
 
-    private void CheckQuantity(BuildingItem buildingItem)
+    private void CheckQuantity(BuildingItemSO buildingItem)
     {
         Dictionary<int, int> itemsToConsume = new Dictionary<int, int>();
         int quantity = 0;
 
 
-        for (int i = 0; i < craftingTableModel.slots.Length; i++)
+        for (int i = 0; i < _slotModel.extendTopSlots.Length; i++)
         {
-            if (craftingTableModel.slots[i].item == null)
+            if (_slotModel.extendTopSlots[i].item == null)
             {
-                Debug.Log(i + "번째 슬롯은 비어있음");
+                // Debug.Log(i + "번째 슬롯은 비어있음");
                 continue;
             }
 
-            if (craftingTableModel.slots[i].item.itemName == buildingItem.itemName)
+
+            for (int j = 0; j < buildingItem.needItems.Length; j++)
             {
-                for (int j = 0; j < buildingItem.needItems.Length; j++)
+                if (_slotModel.extendTopSlots[i].item == buildingItem.needItems[j].needItem)
                 {
-                    if (craftingTableModel.slots[i].item == buildingItem.needItems[j].needItem)
+                    if (_slotModel.extendTopSlots[i].itemCount >= buildingItem.needItems[j].needCount)
                     {
-                        if (craftingTableModel.slots[i].itemCount >= buildingItem.needItems[j].needCount)
-                        {
-                            quantity++;
-                            itemsToConsume[i] = buildingItem.needItems[j].needCount;
-                        }
-                        else
-                        {
-                            Debug.Log(craftingTableModel.slots[i].item + "의 개수가 부족합니다");
-                            return;
-                        }
+                        quantity++;
+                        itemsToConsume[i] = buildingItem.needItems[j].needCount;
+
+                    }
+                    else
+                    {
+                        Debug.Log(_slotModel.extendTopSlots[i].item + "의 개수가 부족합니다");
+                        return;
                     }
                 }
+
             }
         }
 
@@ -103,43 +105,21 @@ public class CraftingTablePresenter : MonoBehaviour
     }
 
 
-    private void ApplyMakeItem(Dictionary<int, int> itemsToConsume, ItemBase item)
+    private void ApplyMakeItem(Dictionary<int, int> itemsToConsume, ItemSO item)
     {
         foreach (var Selecteditem in itemsToConsume)
         {
             int slotIndex = Selecteditem.Key;
             int consumeCount = Selecteditem.Value;
 
-            craftingTableModel.slots[slotIndex].itemCount -= consumeCount; // reduce quantity
+            _inventoryManager.SubstractItemCount(slotIndex, consumeCount);
 
-            if (craftingTableModel.slots[slotIndex].itemCount <= 0)
+            if (_slotModel.extendTopSlots[slotIndex].itemCount <= 0)
             {
-                // slot[i].itemCount <= clearSlot 
+                _inventoryManager.RemoveItem(slotIndex);
             }
-
-            AddItemToInventory(item);
         }
-    }
 
-    private void AddItemToInventory(ItemBase item)
-    {
-
-        for (int i = 0; i < craftingTableModel.slots.Length; i++) // have empty slot
-        {
-            if (craftingTableModel.slots[i].item == null)
-            {
-                craftingTableModel.slots[i].item = item;
-                craftingTableModel.slots[i].itemCount++;
-                break;
-            }
-
-            // inventory ui refresh
-            ThrowItem(item);
-        }
-    }
-
-    private void ThrowItem(ItemBase Item)
-    {
-        Instantiate(Item.itemPrefabs, transform.position, Quaternion.identity);
+        _inventoryManager.AddItem(item);
     }
 }
