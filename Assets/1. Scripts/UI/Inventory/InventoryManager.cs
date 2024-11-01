@@ -9,14 +9,47 @@ public class InventoryManager : MonoBehaviour
     private CraftingTablePresenter _craftingTablePresenter;
     private SlotModel _slotModel;
 
-    public Action updateUI;
+    public Action updateExtendUI;
 
+    private bool isOpendExtendInventory = false;
+    [SerializeField] private GameObject constantSlotPnael;
+    [SerializeField] private GameObject extentSlotPanel;
 
     private void Awake()
     {
         _slotPresenter = GetComponentInChildren<SlotPresenter>();
         _craftingTablePresenter = GetComponentInChildren<CraftingTablePresenter>();
         _slotModel = GetComponent<SlotModel>();
+    }
+
+    private void Start()
+    {
+        extentSlotPanel.gameObject.SetActive(false);
+        constantSlotPnael.gameObject.SetActive(true);
+    }
+
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (!isOpendExtendInventory)
+            {
+                isOpendExtendInventory = true;
+                extentSlotPanel.gameObject.SetActive(true);
+                constantSlotPnael.gameObject.SetActive(false);
+
+                _slotPresenter.OpenExtedUI();
+            }
+            else
+            {
+                isOpendExtendInventory = false;
+                extentSlotPanel.gameObject.SetActive(false);
+                constantSlotPnael.gameObject.SetActive(true);
+
+                _slotPresenter.CloseExtendUI();
+            }
+        }
     }
 
 
@@ -42,7 +75,8 @@ public class InventoryManager : MonoBehaviour
         }
 
         ThrowItem(item);
-        // ui refresh
+
+        _slotPresenter.UpdateItem();
     }
 
 
@@ -50,24 +84,23 @@ public class InventoryManager : MonoBehaviour
     {
         _slotModel.extendTopSlots[slotIndex].item = null;
         _slotModel.extendTopSlots[slotIndex].itemCount = 0;
-        // ui refresh
+        _slotPresenter.UpdateItem();
     }
 
     public void SubstractItemCount(int slotIndex, int consumeCount) // for Crafting
     {
         _slotModel.extendTopSlots[slotIndex].itemCount -= consumeCount;
-        // ui refresh
+        _slotPresenter.UpdateItem();
     }
 
     public void SubstractItemCount(int slotIndex) // for Constrant Inventory
     {
         _slotModel.extendTopSlots[slotIndex].itemCount--;
-        // ui refresh
+        _slotPresenter.UpdateItem();
     }
 
     private void ThrowItem(ItemBase Item)
     {
-        Debug.Log("자리가 없음");
         // Instantiate(Item.itemPrefabs, transform.position, Quaternion.identity);
     }
 }
