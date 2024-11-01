@@ -98,10 +98,10 @@ public class PlayerController : MonoBehaviour
     {
         Ray[] rays = new Ray[4]
         {
-            new Ray(transform.position + (transform.forward * 0.2f) + transform.up * 0.01f, Vector3.down),
-            new Ray(transform.position + (-transform.forward * 0.2f) + transform.up * 0.01f, Vector3.down),
-            new Ray(transform.position + (transform.right * 0.2f) + transform.up * 0.01f, Vector3.down),
-            new Ray(transform.position + (-transform.right * 0.2f) + transform.up * 0.01f, Vector3.down)
+            new Ray(transform.position + (transform.forward * 0.1f) + transform.up * 0.01f, Vector3.down),
+            new Ray(transform.position + (-transform.forward * 0.1f) + transform.up * 0.01f, Vector3.down),
+            new Ray(transform.position + (transform.right * 0.1f) + transform.up * 0.01f, Vector3.down),
+            new Ray(transform.position + (-transform.right * 0.1f) + transform.up * 0.01f, Vector3.down)
         };
 
         for(int i = 0; i < rays.Length; i++)
@@ -115,4 +115,22 @@ public class PlayerController : MonoBehaviour
 
         return false;
     }
+
+    public void OnInventory(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            inventory?.Invoke();
+            ToggleCursor();
+        }
+    }
+
+    void ToggleCursor()
+    {
+        bool toggle = Cursor.lockState == CursorLockMode.Locked;
+        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
+        canLook = !toggle;
+    }
+
+
 }

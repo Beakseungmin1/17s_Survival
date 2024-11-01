@@ -2,18 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
+using static UnityEditor.Progress;
 
 public class InventoryManager : MonoBehaviour
 {
     private SlotPresenter _slotPresenter;
     private CraftingTablePresenter _craftingTablePresenter;
     private SlotModel _slotModel;
+    private Transform _dropPosition;
 
     public Action updateExtendUI;
 
     private bool isOpendExtendInventory = false;
-    [SerializeField] private GameObject constantSlotPnael;
+    [SerializeField] private GameObject constantSlotPanel;
     [SerializeField] private GameObject extentSlotPanel;
+
+    private PlayerController controller;
+    private PlayerCondition condition;
 
     private void Awake()
     {
@@ -24,37 +30,44 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
+        _dropPosition = CharacterManager.Instance.Player.dropPosition;
+        controller = CharacterManager.Instance.Player.GetComponent<PlayerController>();
+        condition = CharacterManager.Instance.Player.GetComponent<PlayerCondition>();
+
+        controller.inventory += Toggle;
+
         extentSlotPanel.gameObject.SetActive(false);
-        constantSlotPnael.gameObject.SetActive(true);
+        constantSlotPanel.gameObject.SetActive(true);
     }
 
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (!isOpendExtendInventory)
-            {
-                isOpendExtendInventory = true;
-                extentSlotPanel.gameObject.SetActive(true);
-                constantSlotPnael.gameObject.SetActive(false);
+        //if (Input.GetMouseButtonDown(1))
+        //{
+        //    if (!isOpendExtendInventory)
+        //    {
+        //        isOpendExtendInventory = true;
+        //        extentSlotPanel.gameObject.SetActive(true);
+        //        constantSlotPnael.gameObject.SetActive(false);
 
-                _slotPresenter.OpenExtedUI();
-            }
-            else
-            {
-                isOpendExtendInventory = false;
-                extentSlotPanel.gameObject.SetActive(false);
-                constantSlotPnael.gameObject.SetActive(true);
+        //        _slotPresenter.OpenExtedUI();
+        //    }
+        //    else
+        //    {
+        //        isOpendExtendInventory = false;
+        //        extentSlotPanel.gameObject.SetActive(false);
+        //        constantSlotPnael.gameObject.SetActive(true);
 
-                _slotPresenter.CloseExtendUI();
-            }
-        }
+        //        _slotPresenter.CloseExtendUI();
+        //    }
+        //}
     }
 
 
     public void AddItem(ItemSO item) // Used when the player interacts
     {
+
         for (int i = 0; i < _slotModel.extendTopSlots.Length; i++)
         {
             if (_slotModel.extendTopSlots[i].item != null && _slotModel.extendTopSlots[i].item.itemName == item.itemName)
@@ -101,6 +114,27 @@ public class InventoryManager : MonoBehaviour
 
     private void ThrowItem(ItemSO Item)
     {
-        // Instantiate(Item.itemPrefabs, transform.position, Quaternion.identity);
+        Instantiate(Item.itemPrefabs, _dropPosition.position, Quaternion.identity);
+    }
+
+    public void Toggle()
+    {
+        if(IsOpen())
+        {
+            extentSlotPanel.SetActive(false);
+            constantSlotPanel.SetActive(true);
+
+        }
+        else
+        {
+            extentSlotPanel.SetActive(true);
+            constantSlotPanel.SetActive(false);
+
+        }
+    }
+
+    public bool IsOpen()
+    {
+        return extentSlotPanel.activeInHierarchy;
     }
 }

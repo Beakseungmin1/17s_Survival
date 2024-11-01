@@ -18,10 +18,13 @@ public class Interaction : MonoBehaviour
     public TextMeshProUGUI prompText;
     private Camera camera;
 
+    public InventoryManager inventoryManager;
 
     void Start()
     {
         camera = Camera.main;
+
+        inventoryManager = FindObjectOfType<InventoryManager>();
     }
 
 
@@ -63,6 +66,7 @@ public class Interaction : MonoBehaviour
         if(context.phase == InputActionPhase.Started && curInteractable != null)
         {
             curInteractable.OnInteract();
+            inventoryManager.AddItem(CharacterManager.Instance.Player.itemData);
             curInteractGameObject = null;
             curInteractable = null;
             prompText.gameObject.SetActive(false);
