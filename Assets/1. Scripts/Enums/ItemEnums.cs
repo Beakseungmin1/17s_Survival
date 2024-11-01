@@ -5,7 +5,7 @@ public enum ItemType
     Building,
     Decoration,
     ReSource,
-    Manufacture,
+    Weapon,
 }
 
 
