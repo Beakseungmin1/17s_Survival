@@ -4604,14 +4604,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingItems:
-  - {fileID: 11400000, guid: 5e38bf985d84b5045b957612d99e2beb, type: 2}
-  - {fileID: 11400000, guid: 1ba4458b2c442b84aa12b24e11e3e82b, type: 2}
-  - {fileID: 11400000, guid: 705fafdd7dc349b45a9895ac547593d6, type: 2}
-  - {fileID: 11400000, guid: 30b41c03a19730e4d8203c21978219ca, type: 2}
+  - {fileID: 11400000, guid: 87a84583887d5b847b8e1a8a857d47a5, type: 2}
+  - {fileID: 11400000, guid: ecba7a518a813fb4381f320edd63f240, type: 2}
   - {fileID: 11400000, guid: 256e1cb0a0b4da5459ea0c719f612d02, type: 2}
   - {fileID: 11400000, guid: f1c8c98bc8333104f8246798e2e362be, type: 2}
   - {fileID: 11400000, guid: 22a295ba75a758149a17c8915936556f, type: 2}
   - {fileID: 11400000, guid: 4c988dcb005b91a4f8ded46bc5cda370, type: 2}
+  - {fileID: 11400000, guid: 26bc4f1651e509e4984ad1f76d38dcfc, type: 2}
+  - {fileID: 11400000, guid: db86943db7d46354db00e13d6ca4beab, type: 2}
   consumableItems:
   - {fileID: 11400000, guid: e6928fb5386800740a1476e5ea1f5c2f, type: 2}
   - {fileID: 11400000, guid: 6d78453133d35754ebc0133723c33825, type: 2}
@@ -4620,7 +4620,6 @@ MonoBehaviour:
   decorationItems:
   - {fileID: 11400000, guid: 3288fdbf6cc713f4fbd5f331ee53e662, type: 2}
   NaturalMaterialItems:
-  - {fileID: 11400000, guid: 0070c5f0abe130f4ca02d6153db36795, type: 2}
   - {fileID: 11400000, guid: a696a0270939bd9449c9d08632064561, type: 2}
   - {fileID: 11400000, guid: 69a653100e1192440a1a2ca16501a57d, type: 2}
 --- !u!1 &3453345481969353377
