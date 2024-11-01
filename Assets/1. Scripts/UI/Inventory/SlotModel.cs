@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 
@@ -13,13 +14,17 @@ public class Slot
 
 public class SlotModel : MonoBehaviour
 {
-    private SlotPresenter _slotPresenter;
-
-    private void Awake()
-    {
-        _slotPresenter = GetComponent<SlotPresenter>();
-    }
-
+    [Header("Constant Inventory")]
     public Slot[] constantSlots = null;
-    public Slot[] extendSlots = null;
+
+    [Header("Extend Top Inventory")]
+    public Slot[] extendTopSlots = null;
+
+    [Header("Extend Bottom Inventory")]
+    [Tooltip("BottomSlots is Copy Constant Inventory")]
+    public Slot[] extendBottomSlots = null;
+
+    [Space(10)]
+    [Header("Slot Default Image")]
+    public Sprite slotDefaultImage;
 }
