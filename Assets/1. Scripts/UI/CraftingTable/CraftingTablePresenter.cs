@@ -57,13 +57,13 @@ public class CraftingTablePresenter : MonoBehaviour
 
     private void CheckEnoughItems(int itemNumber)
     {
-        BuildingItem buildingItem = _craftingTableModel.buildingItems[itemNumber];
+        BuildingItemSO buildingItem = _craftingTableModel.buildingItems[itemNumber];
 
         CheckQuantity(buildingItem);
     }
 
 
-    private void CheckQuantity(BuildingItem buildingItem)
+    private void CheckQuantity(BuildingItemSO buildingItem)
     {
         Dictionary<int, int> itemsToConsume = new Dictionary<int, int>();
         int quantity = 0;
@@ -105,7 +105,7 @@ public class CraftingTablePresenter : MonoBehaviour
     }
 
 
-    private void ApplyMakeItem(Dictionary<int, int> itemsToConsume, ItemBase item)
+    private void ApplyMakeItem(Dictionary<int, int> itemsToConsume, ItemSO item)
     {
         foreach (var Selecteditem in itemsToConsume)
         {

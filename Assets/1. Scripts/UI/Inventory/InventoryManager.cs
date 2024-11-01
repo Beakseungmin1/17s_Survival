@@ -53,7 +53,7 @@ public class InventoryManager : MonoBehaviour
     }
 
 
-    public void AddItem(ItemBase item) // Used when the player interacts
+    public void AddItem(ItemSO item) // Used when the player interacts
     {
         for (int i = 0; i < _slotModel.extendTopSlots.Length; i++)
         {
@@ -99,7 +99,7 @@ public class InventoryManager : MonoBehaviour
         _slotPresenter.UpdateItem();
     }
 
-    private void ThrowItem(ItemBase Item)
+    private void ThrowItem(ItemSO Item)
     {
         // Instantiate(Item.itemPrefabs, transform.position, Quaternion.identity);
     }

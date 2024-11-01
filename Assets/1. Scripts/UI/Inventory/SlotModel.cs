@@ -7,7 +7,7 @@ using UnityEngine;
 [System.Serializable]
 public class Slot
 {
-    public ItemBase item = null;
+    public ItemSO item = null;
     public int itemCount = 0;
 }
 

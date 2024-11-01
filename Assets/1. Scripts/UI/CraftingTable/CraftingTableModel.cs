@@ -6,8 +6,8 @@ using UnityEngine;
 public class CraftingTableModel : MonoBehaviour
 {
     [Header("Have All Building SO")]
-    public BuildingItem[] buildingItems = null;
+    public BuildingItemSO[] buildingItems = null;
 
     [Header("Have All Decoration SO")]
-    public DecorationItem[] decorationItems = null;
+    public DecorationSO[] decorationItems = null;
 }
