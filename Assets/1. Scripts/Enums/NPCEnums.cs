@@ -1,8 +1,8 @@
 
 public enum NPCType
 {
-    Enemy,
-    Quarry
+    Normal,
+    Enemy
 }
 
 public enum AIState

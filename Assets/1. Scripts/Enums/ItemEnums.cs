@@ -5,12 +5,21 @@ public enum ItemType
     Building,
     Decoration,
     ReSource,
-    Manufacture,
+    Weapon,
 }
+
 
 public enum ResourceType
 {
     Wood,
     Rock,
     Flower,
+}
+
+
+public enum SlotType
+{
+    Constant,
+    ExtendTop,
+    ExtendBottom
 }
