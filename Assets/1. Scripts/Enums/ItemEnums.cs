@@ -8,9 +8,18 @@ public enum ItemType
     Manufacture,
 }
 
+
 public enum ResourceType
 {
     Wood,
     Rock,
     Flower,
+}
+
+
+public enum SlotType
+{
+    Constant,
+    ExtendTop,
+    ExtendBottom
 }
