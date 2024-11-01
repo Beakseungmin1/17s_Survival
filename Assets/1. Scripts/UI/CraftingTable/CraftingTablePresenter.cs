@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -33,9 +34,13 @@ public class CraftingTablePresenter : MonoBehaviour
 
     private void InitalizedViewsInfomation()
     {
-        for (int i = 0; i < _buildingViews.Length; i++)
+        for (int i = 0; i < _craftingTableModel.buildingItems.Length; i++)
         {
             _buildingViews[i].DisplayItem(_craftingTableModel.buildingItems[i].itemIcon, i, ItemType.Building);
+        }
+
+        for (int i = 0; i < _craftingTableModel.decorationItems.Length; i++)
+        {
             _decorationViews[i].DisplayItem(_craftingTableModel.decorationItems[i].itemIcon, i, ItemType.Decoration);
         }
     }

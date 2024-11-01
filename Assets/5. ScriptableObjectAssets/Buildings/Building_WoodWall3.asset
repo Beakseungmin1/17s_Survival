@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d5a070c3757e984a9b7c349117ea97b, type: 3}
-  m_Name: Building_IronFloor
+  m_Name: Building_WoodWall3
   m_EditorClassIdentifier: 
   itemName: qwe
   itemDescription: qwe
@@ -20,4 +20,6 @@ MonoBehaviour:
   isCanStack: 0
   maxStack: 0
   previewItemPrefabs: {fileID: 0}
-  needItems: []
+  needItems:
+  - needItem: {fileID: 11400000, guid: a24769f7910ab714d8df4fd216080b2a, type: 2}
+    needCount: 2
