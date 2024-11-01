@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-[CreateAssetMenu(fileName = "NPCBase", menuName = "NPCBase/", order = 0)]
+[CreateAssetMenu(fileName = "NPC", menuName = "NPCBase/", order = 0)]
 public class NPCBase : ScriptableObject
 {
     [Header("Info")]
     public NPCType npcType;
     public string npcName;
-    public int health;
+    public float health;
     public float walkSpeed;
     public float runSpeed;
     public float fieldOfView;
