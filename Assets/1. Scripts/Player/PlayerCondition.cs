@@ -1,8 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCondition : MonoBehaviour
+public interface IDamagalbe
+{
+    void TakePhysicalDamage(float damage);
+
+}
+
+
+
+
+public class PlayerCondition : MonoBehaviour, IDamagalbe
 {
     public UICondition uiCondition;
 
@@ -12,6 +22,8 @@ public class PlayerCondition : MonoBehaviour
     Condition stamina { get { return uiCondition.stamina; } }
 
     public float noHungerHealthDecay;
+
+    public event Action onTakeDamage;
 
     private void Update()
     {
@@ -54,11 +66,15 @@ public class PlayerCondition : MonoBehaviour
         water.Add(amount);
     }
 
-
-
-
     public void Die()
     {
         Debug.Log("Á×À½");
     }
+
+    public void TakePhysicalDamage(float damage)
+    {
+        health.Subtract(damage);
+        onTakeDamage?.Invoke();
+    }
+
 }
