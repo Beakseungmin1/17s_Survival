@@ -3619,6 +3619,7 @@ GameObject:
   - component: {fileID: 126543441114623864}
   - component: {fileID: 4863057722948058697}
   - component: {fileID: 5751538368130291201}
+  - component: {fileID: 4687738990005205220}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -3771,13 +3772,33 @@ MonoBehaviour:
     m_ActionId: 1149e7bb-9534-4390-be4d-8752e817d1e4
     m_ActionName: Player/Inventory[/Keyboard/tab]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4687738990005205220}
+        m_TargetAssemblyTypeName: Interaction, Assembly-CSharp
+        m_MethodName: OninteractInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: a5397cf4-76c3-4869-b5f8-cbfcd0597b65
     m_ActionName: Player/Interaction[/Keyboard/e]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 352bdeec-13bf-47a2-aa75-db83f103b6df
     m_ActionName: Player/Attack[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1429a203-9d9e-449f-8a7f-430a94e7754c
+    m_ActionName: Player/ThirdView[/Keyboard/t]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e52c4fb4-52e9-43d5-8ab2-ce671ac8e36e
+    m_ActionName: Player/Run[/Keyboard/shift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -3797,6 +3818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
   condition: {fileID: 0}
+  itemData: {fileID: 0}
 --- !u!114 &4863057722948058697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3818,6 +3840,8 @@ MonoBehaviour:
   minXLook: -45
   maxXLook: 65
   lookSensitivity: 0.2
+  canLook: 1
+  isSprint: 0
 --- !u!114 &5751538368130291201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3832,6 +3856,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiCondition: {fileID: 0}
   noHungerHealthDecay: 3
+--- !u!114 &4687738990005205220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6564304197351728416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 728066a8ec3a5304ca1d71277fe3bf09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkRate: 0.05
+  maxCheckDistance: 3
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  curInteractGameObject: {fileID: 0}
+  prompText: {fileID: 0}
 --- !u!1 &6586322294554229459
 GameObject:
   m_ObjectHideFlags: 0
