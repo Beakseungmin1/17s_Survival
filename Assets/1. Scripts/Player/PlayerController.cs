@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,8 +19,10 @@ public class PlayerController : MonoBehaviour
     private float camCurXRot;
     public float lookSensitivity;
     private Vector2 mouseDelta;
+    public bool canLook = true;
+    public bool isSprint = false;
 
-
+    public Action inventory;
     private Rigidbody _rigidbody;
 
     private void Awake()
@@ -32,9 +35,17 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Move();
+    }
+
+    private void LateUpdate()
+    {
+        if (canLook)
+        {
+            CameraLook();
+        }
     }
 
     void Move()
@@ -46,10 +57,7 @@ public class PlayerController : MonoBehaviour
         _rigidbody.velocity = dir;
     }
 
-    private void LateUpdate()
-    {
-        CameraLook();
-    }
+
 
     void CameraLook()
     {
@@ -83,6 +91,8 @@ public class PlayerController : MonoBehaviour
     {
         mouseDelta = context.ReadValue<Vector2>();
     }
+
+
 
     bool isGrounded()
     {
