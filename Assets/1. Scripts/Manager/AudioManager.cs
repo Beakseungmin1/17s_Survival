@@ -19,14 +19,16 @@ public class AudioManager : ConvertSingleton<AudioManager>
 
     [Header("-------SFX-------")]
     [SerializeField] private Sound<PlayerSFX>[] _playerSFX = null;
-    [SerializeField] private Sound<EnemySFX>[] _enemySFX = null;
+    [SerializeField] private Sound<UISFX>[] _uiSFX = null;
     [SerializeField] private Sound<EmbientSFX>[] _embientSFX = null;
+
 
     protected override void Awake()
     {
         base.Awake();
         DontDestroyOnLoad(gameObject);
     }
+
 
     public void PlaySFX(PlayerSFX playerSFX)
     {
@@ -52,17 +54,17 @@ public class AudioManager : ConvertSingleton<AudioManager>
     }
 
 
-    public void PlaySFX(EnemySFX enemySFX)
+    public void PlaySFX(UISFX uiSFX)
     {
-        for (int i = 0; i < _enemySFX.Length; i++)
+        for (int i = 0; i < _uiSFX.Length; i++)
         {
-            if (enemySFX.Equals(_enemySFX[i].name))
+            if (uiSFX.Equals(_uiSFX[i].name))
             {
                 for (int j = 0; j < _sfxPlayer.Length; j++)
                 {
                     if (!_sfxPlayer[j].isPlaying)
                     {
-                        _sfxPlayer[j].clip = _enemySFX[i].clip;
+                        _sfxPlayer[j].clip = _uiSFX[i].clip;
                         _sfxPlayer[j].Play();
                         return;
                     }
@@ -71,7 +73,7 @@ public class AudioManager : ConvertSingleton<AudioManager>
                 return;
             }
         }
-        Debug.Log("There is no name called" + enemySFX);
+        Debug.Log("There is no name called" + _uiSFX);
         return;
     }
 

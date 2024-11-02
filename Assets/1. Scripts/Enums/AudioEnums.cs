@@ -1,24 +1,34 @@
 public enum PlayerSFX
 {
-
+    Run1,
+    Run2,
+    Run3,
+    Run4,
+    Walk1,
+    Walk2,
+    Walk3,
+    Walk4
 }
 
 
-public enum EnemySFX
+public enum UISFX
 {
-
+    OpenUI,
+    CloseUI,
+    Click
 }
 
 
 public enum EmbientSFX
 {
-
+    HitMaterial,
+    BreakMaterial
 }
 
 
 public enum Music
 {
-    MainMusic1,
-    MainMusic2,
-    MainMusic3,
+    DefaultMusic,
+    River,
+    Sea
 }
