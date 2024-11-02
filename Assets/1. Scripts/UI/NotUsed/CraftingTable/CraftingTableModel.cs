@@ -9,5 +9,4 @@ public class CraftingTableModel : MonoBehaviour
     public ConsumableSO[] consumableItems = null;
     public DecorationSO[] decorationItems = null;
     public NaturalMaterialsSO[] NaturalMaterialItems = null;
-    private WeaponSO[] weaponItems = null;
 }

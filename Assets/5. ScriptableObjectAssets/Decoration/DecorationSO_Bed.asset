@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce8fb63a45f9da74595e34204e14858b, type: 3}
   m_Name: DecorationSO_Bed
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: 
-  itemIcon: {fileID: 0}
-  itemType: 0
+  itemName: Bed
+  itemDescription: BedBedBed
+  itemIcon: {fileID: 21300000, guid: 758118993f640fa48a412b11405b1392, type: 3}
+  itemType: 3
   itemPrefabs: {fileID: 0}
   isCanStack: 0
   maxStack: 0
   previewItemPrefabs: {fileID: 0}
-  needItems: []
+  needItems:
+  - needItem: {fileID: 11400000}
+    needCount: 2
+  - needItem: {fileID: 11400000}
+    needCount: 2
