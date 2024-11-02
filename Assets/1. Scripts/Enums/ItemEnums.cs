@@ -6,6 +6,24 @@ public enum ItemType
     Decoration,
     ReSource,
     Weapon,
+    All
+}
+
+public enum EquipmentType
+{
+    Helmet,
+    Chest,
+    Glove,
+    Pants,
+    Shoes
+}
+
+public enum ConsumableType
+{
+    Health,
+    Hungry,
+    Thirst,
+    Stamina
 }
 
 
