@@ -9,14 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46c16e6beed7e85498fd39760f5cf760, type: 3}
-  m_Name: NaturalMaterialsSO_Rock
+  m_Script: {fileID: 11500000, guid: ded6179e8bd97cb4e8835ee789097435, type: 3}
+  m_Name: EquipmentSO_Shoes
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: 
-  itemIcon: {fileID: 0}
-  itemType: 4
-  itemPrefabs: {fileID: 0}
-  isCanStack: 1
-  maxStack: 10
-  hasNatureResource: 0
+  equipmentType: 0
+  IncreaseHpStat: 0
+  IncreaseStaminaStat: 0
