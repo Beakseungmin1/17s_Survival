@@ -10,13 +10,19 @@ public class Inventory : MonoBehaviour
     public ItemSO testItem;
     public static bool isInventoryOpend = false;
 
-    [SerializeField] private GameObject slotsParent;
-    [SerializeField] private Slot[] _slots = new Slot[26]; // after Delete attribute
+    [SerializeField] private GameObject _slotsParent;
+    [SerializeField] private GameObject _extendUI;
+    [HideInInspector] public Slot[] _slots = new Slot[26];
 
 
     private void Awake()
     {
-        _slots = slotsParent.GetComponentsInChildren<Slot>();
+        _slots = _slotsParent.GetComponentsInChildren<Slot>();
+    }
+
+    private void Start()
+    {
+        _extendUI.gameObject.SetActive(false);
     }
 
 
@@ -88,22 +94,18 @@ public class Inventory : MonoBehaviour
 
     private void ThrowItem(ItemSO item)
     {
-        Instantiate(item, transform.position, quaternion.identity); // tf.positon -> playerPositon
+        // Instantiate(item, transform.position, quaternion.identity); // tf.positon -> playerPositon
     }
 
 
     private void OpenInventory()
     {
-        slotsParent.gameObject.SetActive(true);
+        _extendUI.gameObject.SetActive(true);
     }
 
 
     private void CloseInventory()
     {
-        slotsParent.gameObject.SetActive(false);
+        _extendUI.gameObject.SetActive(false);
     }
-
-
-
-
 }

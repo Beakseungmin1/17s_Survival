@@ -94,6 +94,7 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         ClearDragSlot();
     }
 
+
     public void OnDrop(PointerEventData eventData) // when Drag Ended on slot
     {
         if (DragSlot.Instance.dargSlot != null)
@@ -107,7 +108,7 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             if (_slotAllowedItemType == DragSlot.Instance.dargSlot.item.itemType)
             {
                 CheckEquipmentType(DragSlot.Instance.dargSlot.item);
-                ChangeSlot();
+                ClearDragSlot();
                 return;
             }
             else
@@ -126,12 +127,11 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
         if (equipmentSO.equipmentType == _slotAllowedEquipmentType)
         {
-            ClearDragSlot();
-            // hp or stamina increase maxValue
-        }
-        else
-        {
-            ClearDragSlot();
+            int hpValue = equipmentSO.IncreaseHpStat;
+            int staminaValue = equipmentSO.IncreaseStaminaStat;
+
+            // MethodName(hpValue, staminaValue);
+            // increase hp or stamina maxValue
         }
     }
 
@@ -153,6 +153,17 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         if (tempItem != null)
         {
             DragSlot.Instance.dargSlot.AddItem(tempItem, tempCount);
+
+            if (tempItem.itemType == ItemType.Equipment)
+            {
+                EquipmentSO equipmentSO = (EquipmentSO)tempItem;
+
+                int hpValue = equipmentSO.IncreaseHpStat;
+                int staminaValue = equipmentSO.IncreaseStaminaStat;
+
+                // MethodName(hpValue, staminaValue);
+                // increase hp or stamina maxValue
+            }
         }
         else
         {
