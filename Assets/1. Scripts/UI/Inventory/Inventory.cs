@@ -12,12 +12,12 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] private GameObject _slotsParent;
     [SerializeField] private GameObject _extendUI;
-    [HideInInspector] public Slot[] _slots = new Slot[26];
+    [HideInInspector] public Slot[] slots = new Slot[26];
 
 
     private void Awake()
     {
-        _slots = _slotsParent.GetComponentsInChildren<Slot>();
+        slots = _slotsParent.GetComponentsInChildren<Slot>();
     }
 
     private void Start()
@@ -53,11 +53,11 @@ public class Inventory : MonoBehaviour
     {
         if (item.itemType == ItemType.Equipment || item.itemType == ItemType.Weapon)
         {
-            for (int i = 0; i < _slots.Length - 6; i++)
+            for (int i = 0; i < slots.Length - 6; i++)
             {
-                if (_slots[i].item == null)
+                if (slots[i].item == null)
                 {
-                    _slots[i].AddItem(item, count);
+                    slots[i].AddItem(item, count);
                     return;
                 }
             }
@@ -66,23 +66,23 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-            for (int i = 0; i < _slots.Length - 6; i++)
+            for (int i = 0; i < slots.Length - 6; i++)
             {
-                if (_slots[i].item != null)
+                if (slots[i].item != null)
                 {
-                    if (_slots[i].item.itemName == item.itemName && _slots[i].itemCount < item.maxStack)
+                    if (slots[i].item.itemName == item.itemName && slots[i].itemCount < item.maxStack)
                     {
-                        _slots[i].SetSlotCount(count);
+                        slots[i].SetSlotCount(count);
                         return;
                     }
                 }
             }
 
-            for (int i = 0; i < _slots.Length - 6; i++)
+            for (int i = 0; i < slots.Length - 6; i++)
             {
-                if (_slots[i].item == null)
+                if (slots[i].item == null)
                 {
-                    _slots[i].AddItem(item, count);
+                    slots[i].AddItem(item, count);
                     return;
                 }
             }
@@ -108,4 +108,6 @@ public class Inventory : MonoBehaviour
     {
         _extendUI.gameObject.SetActive(false);
     }
+
+
 }
