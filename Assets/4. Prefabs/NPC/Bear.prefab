@@ -151,8 +151,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.35, y: 1.7, z: 3}
-  m_Center: {x: 0, y: 0.8, z: 0.2}
+  m_Size: {x: 1.3, y: 1.1, z: 3}
+  m_Center: {x: 0, y: 1, z: 0.2}
 --- !u!54 &1113148681674151104
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -161,7 +161,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545733920690990440}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -178,7 +178,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!195 &461172602124884036
 NavMeshAgent:
@@ -235,7 +235,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78702746aa873ac4ea30770493546676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npc: {fileID: 11400000, guid: 5a53d33f8c4746c4c8d4d82595419e9b, type: 2}
+  npcInfo: {fileID: 11400000, guid: 5a53d33f8c4746c4c8d4d82595419e9b, type: 2}
+  curHealth: 0
 --- !u!1 &872067098894192859
 GameObject:
   m_ObjectHideFlags: 0
