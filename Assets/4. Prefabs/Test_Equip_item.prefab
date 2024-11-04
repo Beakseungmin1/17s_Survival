@@ -99,5 +99,9 @@ MonoBehaviour:
   attackRate: 0
   attackDistance: 0
   doesGatherResources: 0
-  doesDealDamge: 0
+  doesDealDamage: 0
   damage: 0
+  doesItBuilding: 0
+  doesItFood: 0
+  increasedFoodValue: 0
+  increasedWaterValue: 0

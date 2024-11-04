@@ -52,7 +52,8 @@ public class Equipment : MonoBehaviour
                 }
                 else if (equip.doesItBuilding)
                 {
-                    //민준님이 제작해주셔야할 메소드
+                    // 손에 들고있는 물건이 건축아이템 일때 왼쪽마우스 클릭하면 발동
+                    // 민준님이 제작해주셔야할 메소드
                 }
             }
         }
