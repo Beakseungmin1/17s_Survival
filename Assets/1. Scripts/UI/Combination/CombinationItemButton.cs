@@ -3,27 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEditor.Search;
-using JetBrains.Annotations;
 using System;
 
 
 public class CombinationItemButton : MonoBehaviour
 {
-    [Header("UI")]
+    [Header("TargetUI")]
     [SerializeField] private TextMeshProUGUI _tartgetItemName;
     [SerializeField] private Image _targetItemImage;
     [SerializeField] private TextMeshProUGUI _needItems;
     [SerializeField] private Button makeItemButton;
 
+    [Header("NeedItemUI")]
+    [SerializeField] private Image[] _needImages;
+    [SerializeField] private TextMeshProUGUI[] _needCount;
+
+
     [Space(20)]
     [Header("Item")]
     [SerializeField] private DecorationSO _targetItem;
-    private Inventory _inventory;
+    private CombinationItem _combinationItem;
 
 
     private void Awake()
     {
+        _combinationItem = GetComponentInParent<CombinationItem>();
         makeItemButton.onClick.AddListener(OnMakeItem);
     }
 
@@ -38,20 +42,16 @@ public class CombinationItemButton : MonoBehaviour
 
     private void SetNeedItemText()
     {
-        for (int i = 0; i < _targetItem.needItems.Length; i++)
+        for (int i = 0; i < _needImages.Length; i++)
         {
-            _needItems.text = _targetItem.needItems[i].needItem + "" + _targetItem.needItems[i].needCount.ToString() + "\n";
+            _needImages[i].sprite = _targetItem.needItems[i].needItem.itemIcon;
+            _needCount[i].text = _targetItem.needItems[i].needCount.ToString();
         }
     }
 
 
     public void OnMakeItem()
     {
-        CheckInventoryItem();
-    }
-
-    private void CheckInventoryItem()
-    {
-
+        _combinationItem.MakeItem(_targetItem);
     }
 }

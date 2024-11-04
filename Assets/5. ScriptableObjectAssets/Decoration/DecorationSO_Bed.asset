@@ -14,14 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Bed
   itemDescription: BedBedBed
-  itemIcon: {fileID: 21300000, guid: 758118993f640fa48a412b11405b1392, type: 3}
+  itemIcon: {fileID: 21300000, guid: cf49189090aa8ef4cb90dd2ea5ba7e2f, type: 3}
   itemType: 3
   itemPrefabs: {fileID: 0}
   isCanStack: 0
   maxStack: 0
   previewItemPrefabs: {fileID: 0}
   needItems:
-  - needItem: {fileID: 11400000}
-    needCount: 2
-  - needItem: {fileID: 11400000}
+  - needItem: {fileID: 11400000, guid: dc97634486befff4ab270c8b961489c3, type: 2}
     needCount: 2
