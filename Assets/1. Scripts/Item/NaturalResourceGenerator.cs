@@ -14,20 +14,6 @@ public class NaturalResourceGenerator : MonoBehaviour
         typeCount = System.Enum.GetValues(typeof(ResourceType)).Length;
     }
 
-    private void Generate()
-    {
-        for(int i = 0;i < tag.Length; i++)
-        {
-            if (!resourceItemPool.hasNaturalResource)
-            {
-                GameObject newResource = resourceItemPool.SpawnFromPool((ResourceType)i);
-
-                // todo : position change
-                newResource.transform.position = new Vector3(Random.Range(0, 1000), 10, Random.Range(0, 1000));
-            }
-        }
-    }
-
     private void Update()
     {
         if (delay > 0) delay -= Time.deltaTime;
@@ -35,6 +21,20 @@ public class NaturalResourceGenerator : MonoBehaviour
         {
             delay = DELAY;
             Generate();
+        }
+    }
+
+    private void Generate()
+    {
+        for(int i = 0;i < tag.Length; i++)
+        {
+            if (!resourceItemPool.pool.hasNaturalResource)
+            {
+                GameObject newResource = resourceItemPool.SpawnFromPool((ResourceType)i);
+
+                // todo : position change
+                newResource.transform.position = new Vector3(Random.Range(0, 1000), 10, Random.Range(0, 1000));
+            }
         }
     }
 }

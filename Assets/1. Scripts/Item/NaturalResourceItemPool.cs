@@ -1,19 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class Pool : MonoBehaviour
+{
+    public ResourceType tag;
+    public GameObject prefab;
+    public int size;
+    public bool hasNaturalResource;
+}
+
 public class NaturalResourceItemPool : MonoBehaviour
 {
-    [System.Serializable]
-    public class Pool
-    {
-        public ResourceType tag;
-        public GameObject prefab;
-        public int size;
-    }
+    public Pool pool;
 
     public List<Pool> Pools;
     public Dictionary<ResourceType, Queue<GameObject>> PoolDictionary;
-    public bool hasNaturalResource;
 
     private void Awake()
     {
