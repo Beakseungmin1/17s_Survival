@@ -10,6 +10,7 @@ public class Inventory : MonoBehaviour
     public ItemSO testItem;
     public static bool isInventoryOpend = false;
 
+
     [SerializeField] private GameObject _slotsParent;
     [SerializeField] private GameObject _extendUI;
     [HideInInspector] public Slot[] slots = new Slot[26];

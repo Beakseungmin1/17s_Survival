@@ -19,5 +19,6 @@ MonoBehaviour:
   itemPrefabs: {fileID: 6857451463298398882, guid: dc0cf4ec8aa181e4dbf4ad5dde05e556, type: 3}
   isCanStack: 0
   maxStack: 12
+  EquipPrefab: {fileID: 6259937990267661813, guid: ed8b996b25018e44ea696a45a677e34a, type: 3}
   previewItemPrefabs: {fileID: 6857451463298398882, guid: dc0cf4ec8aa181e4dbf4ad5dde05e556, type: 3}
   needItems: []

@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -112,6 +112,34 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnHotKey(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            // Output different values â€‹â€‹for pressed keys
+            if (context.action.name == "HotKeyNum1")
+            {
+                Debug.Log(1);
+            }
+            else if (context.action.name == "HotKeyNum2")
+            {
+                Debug.Log(2);
+            }
+            else if (context.action.name == "HotKeyNum3")
+            {
+                Debug.Log(3);
+            }
+            else if (context.action.name == "HotKeyNum4")
+            {
+                Debug.Log(4);
+            }
+            else if (context.action.name == "HotKeyNum5")
+            {
+                Debug.Log(5);
+            }
+        }
+    }
+
     public void StopRun()
     {
         if (isRun && CharacterManager.Instance.Player.condition.Getstamina() <= 0f)
@@ -134,7 +162,7 @@ public class PlayerController : MonoBehaviour
 
         for (int i = 0; i < rays.Length; i++)
         {
-            // rays¿¡ ÀÖ´Â ·¹ÀÌÀÇ, 0.1f ±æÀÌ¸¸Å­, groundlayermask ¿¡ Æ÷ÇÔµÇ´Â ·¹ÀÌ¾î¸¸ 
+            // raysì— ìžˆëŠ” ë ˆì´ì˜, 0.1f ê¸¸ì´ë§Œí¼, groundlayermask ì— í¬í•¨ë˜ëŠ” ë ˆì´ì–´ë§Œ 
             if (Physics.Raycast(rays[i], 0.1f, groundLayerMask))
             {
                 return true;

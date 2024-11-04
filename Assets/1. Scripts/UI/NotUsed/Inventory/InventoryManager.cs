@@ -40,31 +40,6 @@ public class InventoryManager : MonoBehaviour
         constantSlotPanel.gameObject.SetActive(true);
     }
 
-
-    private void Update()
-    {
-        //if (Input.GetMouseButtonDown(1))
-        //{
-        //    if (!isOpendExtendInventory)
-        //    {
-        //        isOpendExtendInventory = true;
-        //        extentSlotPanel.gameObject.SetActive(true);
-        //        constantSlotPnael.gameObject.SetActive(false);
-
-        //        _slotPresenter.OpenExtedUI();
-        //    }
-        //    else
-        //    {
-        //        isOpendExtendInventory = false;
-        //        extentSlotPanel.gameObject.SetActive(false);
-        //        constantSlotPnael.gameObject.SetActive(true);
-
-        //        _slotPresenter.CloseExtendUI();
-        //    }
-        //}
-    }
-
-
     public void AddItem(ItemSO item) // Used when the player interacts
     {
 
