@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d5a070c3757e984a9b7c349117ea97b, type: 3}
   m_Name: Building_WoodFloor
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: 
+  itemName: WoodFloor
+  itemDescription: WoodFloorWoodFloor
   itemIcon: {fileID: 0}
-  itemType: 0
-  itemPrefabs: {fileID: 0}
+  itemType: 2
+  itemPrefabs: {fileID: 7731848380868944850, guid: cbe365a64834a2b45ab516799717f0a0, type: 3}
   isCanStack: 0
   maxStack: 0
-  previewItemPrefabs: {fileID: 0}
-  needItems: []
+  previewItemPrefabs: {fileID: 8121490259998403481, guid: 51fa3a269808b3b499bc82b1e78363d6, type: 3}

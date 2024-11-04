@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5983166f51cfb124da7b405c17517c01, type: 3}
   m_Name: ConsumableSO_Bandage
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: 
+  itemName: Bandage
+  itemDescription: BandageBandage
   itemIcon: {fileID: 0}
   itemType: 1
-  itemPrefabs: {fileID: 4248656965856329395, guid: 6012fccf4ebae9e4cb47349aa82f193d, type: 3}
+  itemPrefabs: {fileID: 5179466539451223705, guid: 3e92f8b56c376a347bceda8e8a10edfc, type: 3}
   isCanStack: 1
   maxStack: 10
   consumableType: 0
-  value: 0
+  value: 20

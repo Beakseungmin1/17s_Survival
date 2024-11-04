@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46c16e6beed7e85498fd39760f5cf760, type: 3}
   m_Name: NaturalMaterialsSO_Wood
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: 
+  itemName: Wood
+  itemDescription: WoodWood
   itemIcon: {fileID: 0}
   itemType: 4
-  itemPrefabs: {fileID: 0}
+  itemPrefabs: {fileID: 2358439786179482953, guid: 70a4c57110a0ee849a7d4751a646915d, type: 3}
   isCanStack: 1
   maxStack: 10
   hasNatureResource: 0

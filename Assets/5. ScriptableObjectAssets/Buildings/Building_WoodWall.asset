@@ -12,14 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d5a070c3757e984a9b7c349117ea97b, type: 3}
   m_Name: Building_WoodWall
   m_EditorClassIdentifier: 
-  itemName: qwe
-  itemDescription: qwe
-  itemIcon: {fileID: 21300000, guid: cf49189090aa8ef4cb90dd2ea5ba7e2f, type: 3}
+  itemName: Wall
+  itemDescription: WallWall
+  itemIcon: {fileID: 0}
   itemType: 2
-  itemPrefabs: {fileID: 0}
+  itemPrefabs: {fileID: 7719347293458396521, guid: c319a4c2bb5bae94b9ce83b847420da8, type: 3}
   isCanStack: 0
   maxStack: 0
-  previewItemPrefabs: {fileID: 0}
-  needItems:
-  - needItem: {fileID: 11400000, guid: a24769f7910ab714d8df4fd216080b2a, type: 2}
-    needCount: 2
+  previewItemPrefabs: {fileID: 3822977058455967564, guid: ccc972e6a232cc146b052e3ee5c1288f, type: 3}

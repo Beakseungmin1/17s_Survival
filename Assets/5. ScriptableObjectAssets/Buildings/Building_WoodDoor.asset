@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d5a070c3757e984a9b7c349117ea97b, type: 3}
   m_Name: Building_WoodDoor
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: 
+  itemName: WoodDoor
+  itemDescription: WoodDoorWoodDoor
   itemIcon: {fileID: 0}
-  itemType: 0
-  itemPrefabs: {fileID: 0}
+  itemType: 2
+  itemPrefabs: {fileID: 8023996828114733056, guid: d35e3b53cbe96044f82dd81be8e96e6b, type: 3}
   isCanStack: 0
   maxStack: 0
-  previewItemPrefabs: {fileID: 0}
-  needItems: []
+  previewItemPrefabs: {fileID: 2267060315005653906, guid: 4af852b9315cdba408a8e33e2607eb8f, type: 3}

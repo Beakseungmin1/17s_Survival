@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46c16e6beed7e85498fd39760f5cf760, type: 3}
   m_Name: NaturalMaterialsSO_Rock
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: 
+  itemName: Rock
+  itemDescription: RockRock
   itemIcon: {fileID: 0}
   itemType: 4
-  itemPrefabs: {fileID: 0}
+  itemPrefabs: {fileID: 2236019690389217170, guid: 2d71fbe59363b2b4ab487cbc8a7dd4af, type: 3}
   isCanStack: 1
   maxStack: 10
   hasNatureResource: 0
