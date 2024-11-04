@@ -9,6 +9,7 @@ public class CraftingItem : MonoBehaviour
     [SerializeField] private BuildingItemSO[] _buildingItems;
     [SerializeField] private GameObject craftingPanel;
     private GameObject _previewBuilding;
+    [SerializeField] private Material _whiteMaterial;
     private bool _isPreviewActive;
 
 
@@ -19,7 +20,7 @@ public class CraftingItem : MonoBehaviour
 
     private void Awake()
     {
-        // _playerTransform = Camera.main.transform;
+        _playerTransform = Camera.main.transform;
     }
 
 
@@ -43,14 +44,36 @@ public class CraftingItem : MonoBehaviour
 
     private void Build()
     {
-        ItemInfomation itemInfomation = _previewBuilding.GetComponent<ItemInfomation>();
+        if (_previewBuilding.GetComponent<CraftingPreview>().isBuildable())
+        {
+            ItemInfomation itemInfomation = _previewBuilding.GetComponent<ItemInfomation>();
+            GameObject tempPrefab = itemInfomation.item.itemPrefabs;
 
-        GameObject tempPrefab = itemInfomation.item.itemPrefabs;
+            GameObject instantBuilding = Instantiate(_previewBuilding, _hitInfo.point + new Vector3(0, tempPrefab.transform.position.y, 0), quaternion.identity);
 
-        Instantiate(_previewBuilding, _hitInfo.point + new Vector3(0, tempPrefab.transform.position.y, 0), quaternion.identity);
-        Destroy(_previewBuilding);
-        _isPreviewActive = false;
-        _previewBuilding = null;
+            CraftingPreview craftingPreview = instantBuilding.GetComponent<CraftingPreview>();
+
+            craftingPreview.isBuilded = true;
+            SetMaterialToWhite(instantBuilding);
+
+            Destroy(_previewBuilding);
+            _isPreviewActive = false;
+            _previewBuilding = null;
+        }
+    }
+
+
+    private void SetMaterialToWhite(GameObject building)
+    {
+        foreach (Transform child in building.transform)
+        {
+            var newMaterials = new Material[child.GetComponent<Renderer>().materials.Length];
+            for (int i = 0; i < newMaterials.Length; i++)
+            {
+                newMaterials[i] = _whiteMaterial;
+            }
+            child.GetComponent<Renderer>().materials = newMaterials;
+        }
     }
 
     private void PreviewPositionUpdate()

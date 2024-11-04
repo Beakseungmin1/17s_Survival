@@ -1345,9 +1345,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 26bc4f1651e509e4984ad1f76d38dcfc, type: 2}
   - {fileID: 11400000, guid: db86943db7d46354db00e13d6ca4beab, type: 2}
   craftingPanel: {fileID: 4038894143493552035}
+  _whiteMaterial: {fileID: 2100000, guid: 8fc39f4b941898848aa25fab5406de50, type: 2}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 32768
   _range: 10
   _playerTransform: {fileID: 0}
 --- !u!1 &2393640135607329572
