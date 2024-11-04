@@ -23,13 +23,18 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
 
     public float noHungerHealthDecay;
 
+    private float lossStaminaWhileRun = 15f;
+
     public event Action onTakeDamage;
 
     private void Update()
     {
         // 기본적으로 재생되는 체력과 스태미나
         health.Add(health.passiveValue * Time.deltaTime);
-        stamina.Add(stamina.passiveValue * Time.deltaTime);
+        if (!CharacterManager.Instance.Player.controller.isRun)
+        {
+            stamina.Add(stamina.passiveValue * Time.deltaTime);
+        }
 
 
         // 기본적으로 다는 허기와갈증
@@ -42,11 +47,21 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
             health.Subtract(noHungerHealthDecay * Time.deltaTime);
         }
 
+        if (CharacterManager.Instance.Player.controller.isRun)
+        {
+            stamina.Subtract(lossStaminaWhileRun * Time.deltaTime);
+        }
+
         if (health.curValue <= 0f)
         {
             Die();
         }
 
+    }
+
+    public float Getstamina()
+    {
+        return stamina.curValue;
     }
 
     public void Heal(float amount)
