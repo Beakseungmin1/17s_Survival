@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 [CreateAssetMenu(fileName = "NPC_", menuName = "NPC", order = 0)]
 public class NPCBase : ScriptableObject
@@ -16,7 +15,7 @@ public class NPCBase : ScriptableObject
 
     [Header("AI")]
     public float detectDistance;
-    public float safeDistance;
+    //fleeingDistance;
 
     [Header("Wandering")]
     public float minWanderDistance;
