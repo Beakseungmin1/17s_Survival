@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5983166f51cfb124da7b405c17517c01, type: 3}
   m_Name: ConsumableSO_Meat
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: 
+  itemName: Meat
+  itemDescription: MeatMeat
   itemIcon: {fileID: 0}
   itemType: 1
-  itemPrefabs: {fileID: 0}
+  itemPrefabs: {fileID: 911923280235285832, guid: b1e02c58e2fe8af4a9a62e709835c814, type: 3}
   isCanStack: 1
   maxStack: 10
-  consumableType: 0
-  value: 0
+  consumableType: 1
+  value: 50
