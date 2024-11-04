@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d5a070c3757e984a9b7c349117ea97b, type: 3}
   m_Name: Building_WoodRoof
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: 
+  itemName: WoodRoot
+  itemDescription: WoodRootWoodRoot
   itemIcon: {fileID: 0}
-  itemType: 0
-  itemPrefabs: {fileID: 0}
+  itemType: 2
+  itemPrefabs: {fileID: 1902553851488034357, guid: 0561de0252271684dbc2bfd168345685, type: 3}
   isCanStack: 0
   maxStack: 0
-  previewItemPrefabs: {fileID: 0}
-  needItems: []
+  previewItemPrefabs: {fileID: 2708378408191383018, guid: 03d3d58eb23f92a468612ca09761910d, type: 3}
