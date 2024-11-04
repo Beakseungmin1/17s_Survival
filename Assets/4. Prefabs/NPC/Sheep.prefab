@@ -2293,20 +2293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78702746aa873ac4ea30770493546676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 0
-  health: 3
-  walkSpeed: 2
-  runSpeed: 4
-  detectDistance: 5
-  safeDistance: 5
-  minWanderDistance: 3
-  maxWanderDistance: 5
-  minWanderWaitTime: 3
-  maxWanderWaitTime: 5
-  damage: 0
-  attackRate: 0
-  attackDistance: 0
-  fieldOfView: 120
+  npc: {fileID: 11400000, guid: 278a0b2232884ca49aaaef410e90090b, type: 2}
 --- !u!1 &6698024850176117602
 GameObject:
   m_ObjectHideFlags: 0
