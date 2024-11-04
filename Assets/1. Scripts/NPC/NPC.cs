@@ -6,13 +6,12 @@ using UnityEngine.AI;
 
 public class NPC : MonoBehaviour, IDamagalbe
 {
-    public NPCBase npcBase;
-    public EnemyNPC enemyNPC;
+    public NPCBase npc;
 
     private AIState aiState;
 
+    public float curHealth;
     private float lastAttackTime;
-
     private float playerDistance;
 
     private NavMeshAgent agent;
@@ -24,6 +23,8 @@ public class NPC : MonoBehaviour, IDamagalbe
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         meshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
+
+        curHealth = npc.maxHealth;
     }
 
     void Start()
@@ -61,24 +62,24 @@ public class NPC : MonoBehaviour, IDamagalbe
         switch (aiState)
         {
             case AIState.Idle:
-                agent.speed = npcBase.walkSpeed;
+                agent.speed = npc.walkSpeed;
                 agent.isStopped = true;
                 break;
             case AIState.Wandering:
-                agent.speed = npcBase.walkSpeed;
+                agent.speed = npc.walkSpeed;
                 agent.isStopped = false;
                 break;
             case AIState.Attacking:
-                agent.speed = npcBase.runSpeed;
+                agent.speed = npc.runSpeed;
                 agent.isStopped = false;
                 break;
             case AIState.Fleeing:
-                agent.speed = npcBase.runSpeed;
+                agent.speed = npc.runSpeed;
                 agent.isStopped = false;
                 break;
         }
 
-        animator.speed = agent.speed / npcBase.walkSpeed;
+        animator.speed = agent.speed / npc.walkSpeed;
     }
 
     void PassiveUpdate()
@@ -86,10 +87,10 @@ public class NPC : MonoBehaviour, IDamagalbe
         if (aiState == AIState.Wandering && agent.remainingDistance < 0.1f)
         {
             SetState(AIState.Idle);
-            Invoke("WanderToNewLocation", Random.Range(npcBase.minWanderWaitTime, npcBase.maxWanderWaitTime));
+            Invoke("WanderToNewLocation", Random.Range(npc.minWanderWaitTime, npc.maxWanderWaitTime));
         }
 
-        if (playerDistance < npcBase.detectDistance)
+        if (playerDistance < npc.detectDistance)
         {
             SetState(AIState.Attacking);
         }
@@ -97,29 +98,36 @@ public class NPC : MonoBehaviour, IDamagalbe
 
     void AttackingUpdate()
     {
-        if (playerDistance > enemyNPC.attackDistance || !IsPlayerInFieldOfView())
+        if(playerDistance < npc.safeDistance)
         {
-            agent.isStopped = false;
-            NavMeshPath path = new NavMeshPath();
-            if (agent.CalculatePath(CharacterManager.Instance.Player.transform.position, path))
+            if (playerDistance > npc.attackDistance || !IsPlayerInFieldOfView())
             {
-                agent.SetDestination(CharacterManager.Instance.Player.transform.position);
+                agent.isStopped = false;
+                NavMeshPath path = new NavMeshPath();
+                if (agent.CalculatePath(CharacterManager.Instance.Player.transform.position, path))
+                {
+                    agent.SetDestination(CharacterManager.Instance.Player.transform.position);
+                }
+                else
+                {
+                    SetState(AIState.Fleeing);
+                }
             }
             else
             {
-                SetState(AIState.Fleeing);
+                agent.isStopped = true;
+                if (Time.time - lastAttackTime > npc.attackRate)
+                {
+                    lastAttackTime = Time.time;
+                    CharacterManager.Instance.Player.controller.GetComponent<IDamagalbe>().TakePhysicalDamage(npc.damage);
+                    animator.speed = 1;
+                    animator.SetTrigger("Attack");
+                }
             }
         }
         else
         {
-            agent.isStopped = true;
-            if (Time.time - lastAttackTime > enemyNPC.attackRate)
-            {
-                lastAttackTime = Time.time;
-                CharacterManager.Instance.Player.controller.GetComponent<IDamagalbe>().TakePhysicalDamage(enemyNPC.damage);
-                animator.speed = 1;
-                animator.SetTrigger("Attack");
-            }
+            SetState(AIState.Wandering);
         }
     }
 
@@ -149,20 +157,20 @@ public class NPC : MonoBehaviour, IDamagalbe
     {
         Vector3 directionToPlayer = CharacterManager.Instance.Player.transform.position - transform.position;
         float angle = Vector3.Angle(transform.forward, directionToPlayer);
-        return angle < npcBase.fieldOfView * 0.5f;
+        return angle < npc.fieldOfView * 0.5f;
     }
 
     Vector3 GetFleeLocation()
     {
         NavMeshHit hit;
 
-        NavMesh.SamplePosition(transform.position + (Random.onUnitSphere * npcBase.safeDistance), out hit, npcBase.maxWanderDistance, NavMesh.AllAreas);
+        NavMesh.SamplePosition(transform.position + (Random.onUnitSphere * npc.safeDistance), out hit, npc.maxWanderDistance, NavMesh.AllAreas);
 
         int i = 0;
-        while (GetDestinationAngle(hit.position) > 90 || playerDistance < npcBase.safeDistance)
+        while (GetDestinationAngle(hit.position) > 90 || playerDistance < npc.safeDistance)
         {
 
-            NavMesh.SamplePosition(transform.position + (Random.onUnitSphere * npcBase.safeDistance), out hit, npcBase.maxWanderDistance, NavMesh.AllAreas);
+            NavMesh.SamplePosition(transform.position + (Random.onUnitSphere * npc.safeDistance), out hit, npc.maxWanderDistance, NavMesh.AllAreas);
             i++;
             if (i == 30)
                 break;
@@ -175,12 +183,12 @@ public class NPC : MonoBehaviour, IDamagalbe
     {
         NavMeshHit hit;
 
-        NavMesh.SamplePosition(transform.position + (Random.onUnitSphere * Random.Range(npcBase.minWanderDistance, npcBase.maxWanderDistance)), out hit, npcBase.maxWanderDistance, NavMesh.AllAreas);
+        NavMesh.SamplePosition(transform.position + (Random.onUnitSphere * Random.Range(npc.minWanderDistance, npc.maxWanderDistance)), out hit, npc.maxWanderDistance, NavMesh.AllAreas);
 
         int i = 0;
-        while (Vector3.Distance(transform.position, hit.position) < npcBase.detectDistance)
+        while (Vector3.Distance(transform.position, hit.position) < npc.detectDistance)
         {
-            NavMesh.SamplePosition(transform.position + (Random.onUnitSphere * Random.Range(npcBase.minWanderDistance, npcBase.maxWanderDistance)), out hit, npcBase.maxWanderDistance, NavMesh.AllAreas);
+            NavMesh.SamplePosition(transform.position + (Random.onUnitSphere * Random.Range(npc.minWanderDistance, npc.maxWanderDistance)), out hit, npc.maxWanderDistance, NavMesh.AllAreas);
             i++;
             if (i == 30)
                 break;
@@ -196,8 +204,8 @@ public class NPC : MonoBehaviour, IDamagalbe
 
     public void TakePhysicalDamage(float damage)
     {
-        npcBase.health -= damage;
-        if (npcBase.health <= 0)
+        curHealth -= damage;
+        if (curHealth <= 0)
             Die();
 
         StartCoroutine(DamageFlash());
