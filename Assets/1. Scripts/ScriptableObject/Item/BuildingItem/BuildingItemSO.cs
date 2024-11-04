@@ -6,5 +6,4 @@ using UnityEngine;
 public class BuildingItemSO : ItemSO
 {
     public GameObject previewItemPrefabs;
-    public NeedItem[] needItems;
 }
