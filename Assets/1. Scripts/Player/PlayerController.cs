@@ -112,34 +112,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnHotKey(InputAction.CallbackContext context)
-    {
-        if (context.phase == InputActionPhase.Started)
-        {
-            // Output different values ​​for pressed keys
-            if (context.action.name == "HotKeyNum1")
-            {
-                Debug.Log(1);
-            }
-            else if (context.action.name == "HotKeyNum2")
-            {
-                Debug.Log(2);
-            }
-            else if (context.action.name == "HotKeyNum3")
-            {
-                Debug.Log(3);
-            }
-            else if (context.action.name == "HotKeyNum4")
-            {
-                Debug.Log(4);
-            }
-            else if (context.action.name == "HotKeyNum5")
-            {
-                Debug.Log(5);
-            }
-        }
-    }
-
     public void StopRun()
     {
         if (isRun && CharacterManager.Instance.Player.condition.Getstamina() <= 0f)
