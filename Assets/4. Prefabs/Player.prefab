@@ -3010,7 +3010,7 @@ Transform:
   m_GameObject: {fileID: 4873991006037674565}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.8, z: 0}
+  m_LocalPosition: {x: 0.5, y: 2, z: -2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3055,7 +3055,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 183
+    m_Bits: 247
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3897,7 +3897,19 @@ MonoBehaviour:
     m_ActionId: 352bdeec-13bf-47a2-aa75-db83f103b6df
     m_ActionName: Player/Attack[/Mouse/leftButton]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4863057722948058697}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnChangeThirdView
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 1429a203-9d9e-449f-8a7f-430a94e7754c
     m_ActionName: Player/ThirdView[/Keyboard/t]
   - m_PersistentCalls:
@@ -3956,6 +3968,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   cameraContainer: {fileID: 2682226721966156742}
+  FirstCamera: {fileID: 8114369768885316755}
+  ThirdCamera: {fileID: 4873991006037674565}
   minXLook: -45
   maxXLook: 65
   lookSensitivity: 0.2
