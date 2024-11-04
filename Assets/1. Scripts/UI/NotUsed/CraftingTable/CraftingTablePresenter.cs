@@ -51,7 +51,7 @@ public class CraftingTablePresenter : MonoBehaviour
         switch (itemType)
         {
             case ItemType.Building:
-                CheckEnoughItems(itemNumber);
+                // CheckEnoughItems(itemNumber);
                 break;
             case ItemType.Decoration:
                 // CheckEnoughItems(itemNumber);
@@ -60,54 +60,54 @@ public class CraftingTablePresenter : MonoBehaviour
     }
 
 
-    private void CheckEnoughItems(int itemNumber)
-    {
-        BuildingItemSO buildingItem = _craftingTableModel.buildingItems[itemNumber];
+    // private void CheckEnoughItems(int itemNumber)
+    // {
+    //     BuildingItemSO buildingItem = _craftingTableModel.buildingItems[itemNumber];
 
-        CheckQuantity(buildingItem);
-    }
-
-
-    private void CheckQuantity(BuildingItemSO buildingItem)
-    {
-        Dictionary<int, int> itemsToConsume = new Dictionary<int, int>();
-        int quantity = 0;
+    //     CheckQuantity(buildingItem);
+    // }
 
 
-        for (int i = 0; i < _slotModel.extendTopSlots.Length; i++)
-        {
-            if (_slotModel.extendTopSlots[i].item == null)
-            {
-                // Debug.Log(i + "번째 슬롯은 비어있음");
-                continue;
-            }
+    // private void CheckQuantity(BuildingItemSO buildingItem)
+    // {
+    //     Dictionary<int, int> itemsToConsume = new Dictionary<int, int>();
+    //     int quantity = 0;
 
 
-            for (int j = 0; j < buildingItem.needItems.Length; j++)
-            {
-                if (_slotModel.extendTopSlots[i].item == buildingItem.needItems[j].needItem)
-                {
-                    if (_slotModel.extendTopSlots[i].itemCount >= buildingItem.needItems[j].needCount)
-                    {
-                        quantity++;
-                        itemsToConsume[i] = buildingItem.needItems[j].needCount;
+    //     for (int i = 0; i < _slotModel.extendTopSlots.Length; i++)
+    //     {
+    //         if (_slotModel.extendTopSlots[i].item == null)
+    //         {
+    //             // Debug.Log(i + "번째 슬롯은 비어있음");
+    //             continue;
+    //         }
 
-                    }
-                    else
-                    {
-                        Debug.Log(_slotModel.extendTopSlots[i].item + "의 개수가 부족합니다");
-                        return;
-                    }
-                }
 
-            }
-        }
+    //         for (int j = 0; j < buildingItem.needItems.Length; j++)
+    //         {
+    //             if (_slotModel.extendTopSlots[i].item == buildingItem.needItems[j].needItem)
+    //             {
+    //                 if (_slotModel.extendTopSlots[i].itemCount >= buildingItem.needItems[j].needCount)
+    //                 {
+    //                     quantity++;
+    //                     itemsToConsume[i] = buildingItem.needItems[j].needCount;
 
-        if (quantity == buildingItem.needItems.Length)
-        {
-            ApplyMakeItem(itemsToConsume, buildingItem);
-        }
-    }
+    //                 }
+    //                 else
+    //                 {
+    //                     Debug.Log(_slotModel.extendTopSlots[i].item + "의 개수가 부족합니다");
+    //                     return;
+    //                 }
+    //             }
+
+    //         }
+    //     }
+
+    //     if (quantity == buildingItem.needItems.Length)
+    //     {
+    //         ApplyMakeItem(itemsToConsume, buildingItem);
+    //     }
+    // }
 
 
     private void ApplyMakeItem(Dictionary<int, int> itemsToConsume, ItemSO item)
