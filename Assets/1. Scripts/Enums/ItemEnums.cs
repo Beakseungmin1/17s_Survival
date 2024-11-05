@@ -32,7 +32,6 @@ public enum ResourceType
 {
     Wood,
     Rock,
-    Flower,
 }
 
 
