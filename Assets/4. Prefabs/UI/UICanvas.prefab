@@ -3886,6 +3886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testItem: {fileID: 11400000, guid: dc97634486befff4ab270c8b961489c3, type: 2}
+  isInventoryOpend: 0
   _slotsParent: {fileID: 3511978642418186418}
   _extendUI: {fileID: 1291653393755866047}
   slots:
@@ -7031,10 +7032,10 @@ RectTransform:
   - {fileID: 8112148130892617767}
   m_Father: {fileID: 648635205892566110}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 370, y: -170}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7316983079846371576
 GameObject:
