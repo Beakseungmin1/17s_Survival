@@ -10,12 +10,10 @@ public class NPCBase : ScriptableObject
     public float walkSpeed;
     public float runSpeed;
     public float fieldOfView;
-    public GameObject npcPrefabs;
     //public ItemData[] dropOnDeath;
 
     [Header("AI")]
     public float detectDistance;
-    //fleeingDistance;
 
     [Header("Wandering")]
     public float minWanderDistance;

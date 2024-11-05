@@ -20,6 +20,7 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
     Condition hunger { get { return uiCondition.hunger; } }
     Condition water { get { return uiCondition.water; } }
     Condition stamina { get { return uiCondition.stamina; } }
+    Condition temperature { get { return uiCondition.stamina; } }
 
     public float noHungerHealthDecay;
 
