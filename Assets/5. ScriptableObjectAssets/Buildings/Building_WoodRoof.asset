@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: WoodRoot
   itemDescription: WoodRootWoodRoot
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 62e6fd9eadd225f4ba43c151b744ca8c, type: 3}
   itemType: 2
   itemPrefabs: {fileID: 1902553851488034357, guid: 0561de0252271684dbc2bfd168345685, type: 3}
   isCanStack: 0
   maxStack: 0
+  EquipPrefab: {fileID: 0}
   previewItemPrefabs: {fileID: 2708378408191383018, guid: 03d3d58eb23f92a468612ca09761910d, type: 3}
