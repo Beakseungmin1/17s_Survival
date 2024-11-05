@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5983166f51cfb124da7b405c17517c01, type: 3}
   m_Name: ConsumableSO_Water
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: 
+  itemName: Water
+  itemDescription: WaterWater
   itemIcon: {fileID: 0}
   itemType: 1
-  itemPrefabs: {fileID: 0}
+  itemPrefabs: {fileID: 7527768144115767444, guid: 2d187cf4b26d69047930bd6633786caf, type: 3}
   isCanStack: 1
   maxStack: 10
-  consumableType: 0
-  value: 0
+  consumableType: 2
+  value: 50

@@ -14,7 +14,7 @@ public class InventoryManager : MonoBehaviour
 
     public Action updateExtendUI;
 
-    private bool isOpendExtendInventory = false;
+    // private bool isOpendExtendInventory = false;
     [SerializeField] private GameObject constantSlotPanel;
     [SerializeField] private GameObject extentSlotPanel;
 
@@ -39,31 +39,6 @@ public class InventoryManager : MonoBehaviour
         extentSlotPanel.gameObject.SetActive(false);
         constantSlotPanel.gameObject.SetActive(true);
     }
-
-
-    private void Update()
-    {
-        //if (Input.GetMouseButtonDown(1))
-        //{
-        //    if (!isOpendExtendInventory)
-        //    {
-        //        isOpendExtendInventory = true;
-        //        extentSlotPanel.gameObject.SetActive(true);
-        //        constantSlotPnael.gameObject.SetActive(false);
-
-        //        _slotPresenter.OpenExtedUI();
-        //    }
-        //    else
-        //    {
-        //        isOpendExtendInventory = false;
-        //        extentSlotPanel.gameObject.SetActive(false);
-        //        constantSlotPnael.gameObject.SetActive(true);
-
-        //        _slotPresenter.CloseExtendUI();
-        //    }
-        //}
-    }
-
 
     public void AddItem(ItemSO item) // Used when the player interacts
     {
@@ -119,7 +94,7 @@ public class InventoryManager : MonoBehaviour
 
     public void Toggle()
     {
-        if(IsOpen())
+        if (IsOpen())
         {
             extentSlotPanel.SetActive(false);
             constantSlotPanel.SetActive(true);

@@ -10,7 +10,7 @@ public class CraftingItem : MonoBehaviour
     [SerializeField] private GameObject craftingPanel;
     private GameObject _previewBuilding;
     [SerializeField] private Material _whiteMaterial;
-    private bool _isPreviewActive;
+    public bool _isPreviewActive;
 
 
     private RaycastHit _hitInfo;
@@ -31,18 +31,13 @@ public class CraftingItem : MonoBehaviour
             PreviewPositionUpdate();
         }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            Build();
-        }
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Cancel();
         }
     }
 
-    private void Build()
+    public void Build()
     {
         if (_previewBuilding.GetComponent<CraftingPreview>().isBuildable())
         {
@@ -112,8 +107,8 @@ public class CraftingItem : MonoBehaviour
         craftingPanel.gameObject.SetActive(false);
     }
 
-    private void OnDrawGizmos()
-    {
-        Debug.DrawRay(_playerTransform.position, _playerTransform.forward, Color.red, _range);
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     Debug.DrawRay(_playerTransform.position, _playerTransform.forward, Color.red, _range);
+    // }
 }
