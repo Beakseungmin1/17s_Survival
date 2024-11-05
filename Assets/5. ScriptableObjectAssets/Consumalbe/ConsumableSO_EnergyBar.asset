@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: EnergyBar
   itemDescription: EnergyBarEnergyBar
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: fdd3180b24458af44887f36affa89de7, type: 3}
   itemType: 1
   itemPrefabs: {fileID: 4942070242388120076, guid: adc4162b3bf1fbf41b74b701275d28a9, type: 3}
   isCanStack: 1
   maxStack: 10
+  EquipPrefab: {fileID: 0}
   consumableType: 3
   value: 20
