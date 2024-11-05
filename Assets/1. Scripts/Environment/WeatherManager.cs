@@ -4,8 +4,8 @@ using UnityEngine;
 public class WeatherManager : MonoBehaviour
 {
     private int WeatherTypeCount;
-    private static readonly float CHANGETIME = 30.0f;
-    private float delay = CHANGETIME;
+    public float changeTime;
+    private float delay;
     private WeatherState state;
 
     [Header("Snow")]
@@ -19,6 +19,7 @@ public class WeatherManager : MonoBehaviour
     private void Awake()
     {
         WeatherTypeCount = System.Enum.GetValues(typeof(WeatherState)).Length;
+        delay = changeTime;
     }
 
     private void Start()
@@ -32,7 +33,7 @@ public class WeatherManager : MonoBehaviour
         if (delay > 0) delay -= Time.deltaTime;
         else
         {
-            delay = CHANGETIME;
+            delay = changeTime;
             StopWeather();
             state = GetRandomWeather();
             PlayWeather();
