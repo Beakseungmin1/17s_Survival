@@ -6,6 +6,7 @@ public enum ItemType
     Decoration,
     ReSource,
     Weapon,
+    Tool,
     All
 }
 
