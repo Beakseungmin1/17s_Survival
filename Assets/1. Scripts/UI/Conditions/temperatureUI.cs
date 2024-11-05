@@ -22,18 +22,22 @@ public class temperatureUI : MonoBehaviour
 
     private void Update()
     {
-        if (condition.Gettemperature() < 30f)
+        if (condition.Gettemperature() >= 60f)
         {
             FadeIn(Hotimage);
+        }
+        else if (condition.Gettemperature() <= 40f)
+        {
+            FadeIn(Coldimage);
         }
     }
 
     public void FadeIn(Image image)
     {
-        if (totalAlpha < 90f)
+        if (totalAlpha < 90f / 255f)
         {
-            totalAlpha += flashSpeed * Time.deltaTime;
-            image.color = new Color(255f, 132f, 57f, totalAlpha);
+            totalAlpha += 0.2f * Time.deltaTime;
+            image.color = new Color(255f / 255f, 132f / 255f, 57f / 255f, totalAlpha);
         }
     }
 

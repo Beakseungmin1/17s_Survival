@@ -26,6 +26,8 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
 
     public float noHungerHealthDecay;
 
+    public float temperatureHealthDecay;
+
     private float lossStaminaWhileRun = 15f;
 
     public event Action onTakeDamage;
@@ -65,9 +67,9 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
             Invoke("Die", 0);
         }
 
-        if (temperature.curValue <= 30f)
+        if (temperature.curValue <= 40f || temperature.curValue >= 60f)
         {
-
+            health.Subtract(temperatureHealthDecay * Time.deltaTime);
         }
 
     }
