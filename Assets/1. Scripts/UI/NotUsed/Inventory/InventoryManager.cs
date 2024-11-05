@@ -28,18 +28,6 @@ public class InventoryManager : MonoBehaviour
         _slotModel = GetComponent<SlotModel>();
     }
 
-    private void Start()
-    {
-        _dropPosition = CharacterManager.Instance.Player.dropPosition;
-        controller = CharacterManager.Instance.Player.GetComponent<PlayerController>();
-        condition = CharacterManager.Instance.Player.GetComponent<PlayerCondition>();
-
-        controller.inventory += Toggle;
-
-        extentSlotPanel.gameObject.SetActive(false);
-        constantSlotPanel.gameObject.SetActive(true);
-    }
-
     public void AddItem(ItemSO item) // Used when the player interacts
     {
 
@@ -90,26 +78,5 @@ public class InventoryManager : MonoBehaviour
     private void ThrowItem(ItemSO Item)
     {
         Instantiate(Item.itemPrefabs, _dropPosition.position, Quaternion.identity);
-    }
-
-    public void Toggle()
-    {
-        if (IsOpen())
-        {
-            extentSlotPanel.SetActive(false);
-            constantSlotPanel.SetActive(true);
-
-        }
-        else
-        {
-            extentSlotPanel.SetActive(true);
-            constantSlotPanel.SetActive(false);
-
-        }
-    }
-
-    public bool IsOpen()
-    {
-        return extentSlotPanel.activeInHierarchy;
     }
 }

@@ -22,7 +22,7 @@ public class UIToggle : MonoBehaviour
 
     private void Start()
     {
-        // _playerController. ActionName += OnOpenUI;
+        _playerController.inventory += OnOpenUI;
 
         _uiToggleButtons[(int)UIEnums.Inventory].onClick.AddListener(OnOpenInventoryUI);
         _uiToggleButtons[(int)UIEnums.Combination].onClick.AddListener(OnOpenCombinationUI);
