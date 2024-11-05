@@ -21,7 +21,7 @@ MonoBehaviour:
   npcPrefabs: {fileID: 6677094591406809411, guid: 0b63a9951fc7939448f9b87f206d087e, type: 3}
   detectDistance: 5
   minWanderDistance: 2
-  maxWanderDistance: 5
+  maxWanderDistance: 10
   minWanderWaitTime: 1
   maxWanderWaitTime: 3
   damage: 0
