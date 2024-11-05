@@ -9,17 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ded6179e8bd97cb4e8835ee789097435, type: 3}
-  m_Name: EquipmentSO_Shoes
+  m_Script: {fileID: 11500000, guid: 3c514b2cd10fa7d47a2774daf28ae143, type: 3}
+  m_Name: WeaponSO_
   m_EditorClassIdentifier: 
-  itemName: Boot
-  itemDescription: BootBoot
-  itemIcon: {fileID: 21300000, guid: 5170e0068a8cf184fb119834fa7ba0f3, type: 3}
+  itemName: 
+  itemDescription: 
+  itemIcon: {fileID: 0}
   itemType: 0
   itemPrefabs: {fileID: 0}
   isCanStack: 0
   maxStack: 0
   EquipPrefab: {fileID: 0}
-  equipmentType: 4
-  IncreaseHpStat: 20
-  IncreaseStaminaStat: 20

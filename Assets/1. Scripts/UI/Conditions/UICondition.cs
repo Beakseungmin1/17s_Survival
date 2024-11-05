@@ -9,6 +9,7 @@ public class UICondition : MonoBehaviour
     public Condition hunger;
     public Condition water;
     public Condition stamina;
+    public Condition temperature;
 
     private void Start()
     {

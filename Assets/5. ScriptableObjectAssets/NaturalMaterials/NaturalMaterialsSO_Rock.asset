@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Rock
   itemDescription: RockRock
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: edcbd57032ccbd44e9f228cdd323ab50, type: 3}
   itemType: 4
   itemPrefabs: {fileID: 2236019690389217170, guid: 2d71fbe59363b2b4ab487cbc8a7dd4af, type: 3}
   isCanStack: 1
   maxStack: 10
+  EquipPrefab: {fileID: 0}
   hasNatureResource: 0

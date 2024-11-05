@@ -12,8 +12,11 @@ public class UsingSlotItem : MonoBehaviour
     [SerializeField] private float _maxDistance = 10;
     [SerializeField] private LayerMask _previewLayer;
 
+    private Camera _camera;
+
     private void Awake()
     {
+        _camera = Camera.main;
         _playerController = GetComponent<PlayerController>();
 
         _inventory = FindAnyObjectByType<Inventory>();
@@ -130,6 +133,26 @@ public class UsingSlotItem : MonoBehaviour
 
     private void Attack(int soltNumber)
     {
+        //ItemSO item = _inventory.slots[soltNumber].item;
+        //Ray ray = _camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        //RaycastHit hit;
 
+        //// Damage and range are given to each weapon
+        //// Damage and resource damage are different values
+        //if (Physics.Raycast(ray, out hit, attackDistance))
+        //{
+        //    // If you want to use it, create a Resource script for the lecture.
+        //    if (item.itemType == ItemType.Tool && hit.collider.TryGetComponent(out Resource resource))
+        //    {
+        //        resource.Gather(hit.point, hit.normal);
+        //    }
+
+        //    if (hit.collider.TryGetComponent(out NPC npc))
+        //    {
+        //        npc.TakePhysicalDamage(damage);
+        //    }
+        //}
     }
+
+
 }

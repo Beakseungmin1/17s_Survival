@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Bandage
   itemDescription: BandageBandage
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 5cfe68523b9e1f44682844f53b5b4fe5, type: 3}
   itemType: 1
   itemPrefabs: {fileID: 5179466539451223705, guid: 3e92f8b56c376a347bceda8e8a10edfc, type: 3}
   isCanStack: 1
   maxStack: 10
+  EquipPrefab: {fileID: 0}
   consumableType: 0
   value: 20
