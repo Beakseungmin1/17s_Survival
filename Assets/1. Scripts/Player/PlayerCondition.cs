@@ -20,13 +20,20 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
     Condition hunger { get { return uiCondition.hunger; } }
     Condition water { get { return uiCondition.water; } }
     Condition stamina { get { return uiCondition.stamina; } }
-    Condition temperature { get { return uiCondition.stamina; } }
+    public Condition temperature { get { return uiCondition.temperature; } }
+
+    private bool isDead = false;
 
     public float noHungerHealthDecay;
 
     private float lossStaminaWhileRun = 15f;
 
     public event Action onTakeDamage;
+
+    private void Start()
+    {
+
+    }
 
     private void Update()
     {
@@ -53,9 +60,14 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
             stamina.Subtract(lossStaminaWhileRun * Time.deltaTime);
         }
 
-        if (health.curValue <= 0f)
+        if (health.curValue <= 0.5f && isDead == false)
         {
-            Die();
+            Invoke("Die", 0);
+        }
+
+        if (temperature.curValue <= 30f)
+        {
+
         }
 
     }
@@ -63,6 +75,16 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
     public float Getstamina()
     {
         return stamina.curValue;
+    }
+
+    public float Gettemperature()
+    {
+        return temperature.curValue;
+    }
+
+    public void Settemperature(float value)
+    {
+        temperature.curValue = value;
     }
 
     public void Heal(float amount)
@@ -85,6 +107,7 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
     public void Die()
     {
         Debug.Log("Á×À½");
+        isDead = true;
     }
 
     public void TakePhysicalDamage(float damage)

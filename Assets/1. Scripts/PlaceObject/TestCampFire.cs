@@ -30,6 +30,8 @@ public class TestCampFire : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+
         if(other.TryGetComponent(out IDamagalbe damagalbe))
         {
             things.Add(damagalbe);
@@ -44,5 +46,13 @@ public class TestCampFire : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            CharacterManager.Instance.Player.condition.temperature.Add(damage * Time.deltaTime);
+
+        }
+    }
 
 }
