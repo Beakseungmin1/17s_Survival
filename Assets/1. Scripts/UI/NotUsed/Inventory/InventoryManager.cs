@@ -14,7 +14,7 @@ public class InventoryManager : MonoBehaviour
 
     public Action updateExtendUI;
 
-    private bool isOpendExtendInventory = false;
+    // private bool isOpendExtendInventory = false;
     [SerializeField] private GameObject constantSlotPanel;
     [SerializeField] private GameObject extentSlotPanel;
 
@@ -94,7 +94,7 @@ public class InventoryManager : MonoBehaviour
 
     public void Toggle()
     {
-        if(IsOpen())
+        if (IsOpen())
         {
             extentSlotPanel.SetActive(false);
             constantSlotPanel.SetActive(true);

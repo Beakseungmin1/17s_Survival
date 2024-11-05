@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     public bool isRun = false;
 
     public Action inventory;
+    public Action mouseLeftClick;
+    public int selectedNumber; // add min jun
     private Rigidbody _rigidbody;
 
     private void Awake()
@@ -36,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.lockState = CursorLockMode.Locked;
     }
 
     void FixedUpdate()
@@ -174,10 +176,35 @@ public class PlayerController : MonoBehaviour
 
     void ToggleCursor()
     {
-        bool toggle = Cursor.lockState == CursorLockMode.Locked;
-        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
-        canLook = !toggle;
+        // bool toggle = Cursor.lockState == CursorLockMode.Locked;
+        //  Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
+        // canLook = !toggle;
     }
 
 
+    /// <summary>
+    /// if pressed keyboard numberRow(1 ~ 5), return int number
+    /// </summary>
+    public void OnPressedKeyPad(InputAction.CallbackContext context) // 1 ~ 5 add min jun
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            string key = context.control.name;
+
+            if (int.TryParse(key, out selectedNumber))
+            {
+                selectedNumber -= 1;
+                Debug.Log(selectedNumber);
+            }
+        }
+    }
+
+
+    public void OnPressedLeftMouseButton(InputAction.CallbackContext context) // add min jun
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            mouseLeftClick?.Invoke();
+        }
+    }
 }

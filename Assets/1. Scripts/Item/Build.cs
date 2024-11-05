@@ -5,13 +5,7 @@ using Unity.Mathematics;
 using UnityEngine;
 
 
-public interface IBuildArchitecture
-{
-    public void SetIngredient(ItemSO item, int quntity = 1);
-}
-
-
-public class Build : MonoBehaviour, IBuildArchitecture
+public class Build : MonoBehaviour
 {
     private ItemInfomation _itemInfomation;
     private BuildingItemSO buildingItemSO;
@@ -26,6 +20,16 @@ public class Build : MonoBehaviour, IBuildArchitecture
         _itemInfomation = GetComponent<ItemInfomation>();
 
         buildingItemSO = (BuildingItemSO)_itemInfomation.item;
+    }
+
+    public bool CheckNeedItem(ItemSO item)
+    {
+        if (needItem == item)
+        {
+            return true;
+        }
+        Debug.Log("Current : " + item + "Need" + needItem);
+        return false;
     }
 
 
@@ -50,5 +54,6 @@ public class Build : MonoBehaviour, IBuildArchitecture
     private void BuildArchitecture()
     {
         Instantiate(buildingItemSO.itemPrefabs, transform.position, quaternion.identity);
+        Destroy(gameObject);
     }
 }
