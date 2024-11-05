@@ -7,7 +7,10 @@ using UnityEngine.InputSystem;
 
 public class Inventory : MonoBehaviour
 {
+
     public ItemSO testItem;
+    public bool isInventoryOpend = false;
+
 
     [SerializeField] private GameObject _slotsParent;
     [SerializeField] private GameObject _extendUI;
@@ -17,6 +20,29 @@ public class Inventory : MonoBehaviour
     private void Awake()
     {
         slots = _slotsParent.GetComponentsInChildren<Slot>();
+    }
+
+    private void Start()
+    {
+        _extendUI.gameObject.SetActive(false);
+    }
+
+
+    private void Update() // integrate uis
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            isInventoryOpend = !isInventoryOpend;
+
+            if (isInventoryOpend)
+            {
+                OpenInventory();
+            }
+            else
+            {
+                CloseInventory();
+            }
+        }
     }
 
 
@@ -79,68 +105,4 @@ public class Inventory : MonoBehaviour
     {
         _extendUI.gameObject.SetActive(false);
     }
-
-
-    // public void OnHotKey(InputAction.CallbackContext context)
-    // {
-    //     if (context.phase == InputActionPhase.Started)
-    //     {
-    //         // Output different values ​​for pressed keys
-    //         if (context.action.name == "HotKeyNum1")
-    //         {
-    //             if (slots[0].item != null)
-    //             {
-    //                 CharacterManager.Instance.Player.equip.EquipNew(slots[0].item);
-    //             }
-    //             else
-    //             {
-    //                 CharacterManager.Instance.Player.equip.UnEquip();
-    //             }
-    //         }
-    //         else if (context.action.name == "HotKeyNum2")
-    //         {
-    //             if (slots[1].item != null)
-    //             {
-    //                 CharacterManager.Instance.Player.equip.EquipNew(slots[1].item);
-    //             }
-    //             else
-    //             {
-    //                 CharacterManager.Instance.Player.equip.UnEquip();
-    //             }
-    //         }
-    //         else if (context.action.name == "HotKeyNum3")
-    //         {
-    //             if (slots[2].item != null)
-    //             {
-    //                 CharacterManager.Instance.Player.equip.EquipNew(slots[2].item);
-    //             }
-    //             else
-    //             {
-    //                 CharacterManager.Instance.Player.equip.UnEquip();
-    //             }
-    //         }
-    //         else if (context.action.name == "HotKeyNum4")
-    //         {
-    //             if (slots[3].item != null)
-    //             {
-    //                 CharacterManager.Instance.Player.equip.EquipNew(slots[3].item);
-    //             }
-    //             else
-    //             {
-    //                 CharacterManager.Instance.Player.equip.UnEquip();
-    //             }
-    //         }
-    //         else if (context.action.name == "HotKeyNum5")
-    //         {
-    //             if (slots[4].item != null)
-    //             {
-    //                 CharacterManager.Instance.Player.equip.EquipNew(slots[4].item);
-    //             }
-    //             else
-    //             {
-    //                 CharacterManager.Instance.Player.equip.UnEquip();
-    //             }
-    //         }
-    //     }
-    // }
 }
