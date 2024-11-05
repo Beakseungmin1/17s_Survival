@@ -7,10 +7,7 @@ using UnityEngine.InputSystem;
 
 public class Inventory : MonoBehaviour
 {
-
     public ItemSO testItem;
-    public bool isInventoryOpend = false;
-
 
     [SerializeField] private GameObject _slotsParent;
     [SerializeField] private GameObject _extendUI;
@@ -20,29 +17,6 @@ public class Inventory : MonoBehaviour
     private void Awake()
     {
         slots = _slotsParent.GetComponentsInChildren<Slot>();
-    }
-
-    private void Start()
-    {
-        _extendUI.gameObject.SetActive(false);
-    }
-
-
-    private void Update() // integrate uis
-    {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            isInventoryOpend = !isInventoryOpend;
-
-            if (isInventoryOpend)
-            {
-                OpenInventory();
-            }
-            else
-            {
-                CloseInventory();
-            }
-        }
     }
 
 
@@ -106,6 +80,7 @@ public class Inventory : MonoBehaviour
         _extendUI.gameObject.SetActive(false);
     }
 
+
     // public void OnHotKey(InputAction.CallbackContext context)
     // {
     //     if (context.phase == InputActionPhase.Started)
@@ -168,6 +143,4 @@ public class Inventory : MonoBehaviour
     //         }
     //     }
     // }
-
-
 }
