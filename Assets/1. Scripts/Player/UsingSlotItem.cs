@@ -29,7 +29,7 @@ public class UsingSlotItem : MonoBehaviour
 
     public void OnClickLeftMouseButton()
     {
-        if (_inventory.isInventoryOpend) return;
+        if (UIToggle.isUIOpen) return;
         if (_craftingItem._isPreviewActive)
         {
             _craftingItem.Build();
