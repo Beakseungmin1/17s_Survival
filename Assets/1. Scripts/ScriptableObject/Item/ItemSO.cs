@@ -20,4 +20,5 @@ public class ItemSO : ScriptableObject
     public bool isCanStack;
     public int maxStack;
     public GameObject EquipPrefab;
+    public GameObject dropPrefab;
 }
