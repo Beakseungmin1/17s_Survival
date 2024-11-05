@@ -137,16 +137,12 @@ public class NPC : MonoBehaviour, IDamagalbe
                 agent.isStopped = true;
                 SetState(AIState.Wandering);
             }
-        }
+        }        
     }
 
     void FleeingUpdate()
     {
-        if (aiState == AIState.Fleeing && agent.remainingDistance < 0.1f)
-        {
-            SetState(AIState.Idle);
-            Invoke("FleeingToNewLocation", npcInfo.minWanderWaitTime);
-        }
+        //µµ¸Á°¡±â
     }
 
     void WanderToNewLocation()
@@ -169,34 +165,6 @@ public class NPC : MonoBehaviour, IDamagalbe
         while (Vector3.Distance(transform.position, hit.position) < npcInfo.detectDistance)
         {
             NavMesh.SamplePosition(transform.position + (Random.onUnitSphere * Random.Range(npcInfo.minWanderDistance, npcInfo.maxWanderDistance)), out hit, npcInfo.maxWanderDistance, NavMesh.AllAreas);
-            i++;
-            if (i == 30)
-                break;
-        }
-
-        return hit.position;
-    }
-
-    void FleeingToNewLocation()
-    {
-        if (aiState != AIState.Idle)
-        {
-            return;
-        }
-        SetState(AIState.Fleeing);
-        agent.SetDestination(GetFleeingLocation());
-    }
-
-    Vector3 GetFleeingLocation()
-    {
-        NavMeshHit hit;
-
-        NavMesh.SamplePosition(transform.position + (Random.onUnitSphere * npcInfo.maxWanderDistance), out hit, npcInfo.maxWanderDistance, NavMesh.AllAreas);
-
-        int i = 0;
-        while (Vector3.Distance(transform.position, hit.position) < npcInfo.detectDistance)
-        {
-            NavMesh.SamplePosition(transform.position + (Random.onUnitSphere * npcInfo.maxWanderDistance), out hit, npcInfo.maxWanderDistance, NavMesh.AllAreas);
             i++;
             if (i == 30)
                 break;
