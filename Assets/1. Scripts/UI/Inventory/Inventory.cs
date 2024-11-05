@@ -9,8 +9,9 @@ public class Inventory : MonoBehaviour
 {
 
     public ItemSO testItem;
-    public bool isInventoryOpend = false;
+    //public bool isInventoryOpend = false;
 
+    private PlayerController controller;
 
     [SerializeField] private GameObject _slotsParent;
     [SerializeField] private GameObject _extendUI;
@@ -24,25 +25,29 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
+        controller = CharacterManager.Instance.Player.GetComponent<PlayerController>();
+
+        //controller.inventory += Toggle;
+
         _extendUI.gameObject.SetActive(false);
     }
 
 
     private void Update() // integrate uis
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            isInventoryOpend = !isInventoryOpend;
+        //if (Input.GetKeyDown(KeyCode.I))
+        //{
+        //    isInventoryOpend = !isInventoryOpend;
 
-            if (isInventoryOpend)
-            {
-                OpenInventory();
-            }
-            else
-            {
-                CloseInventory();
-            }
-        }
+        //    if (isInventoryOpend)
+        //    {
+        //        OpenInventory();
+        //    }
+        //    else
+        //    {
+        //        CloseInventory();
+        //    }
+        //}
     }
 
 
@@ -95,14 +100,33 @@ public class Inventory : MonoBehaviour
     }
 
 
-    private void OpenInventory()
+    //private void OpenInventory()
+    //{
+    //    _extendUI.gameObject.SetActive(true);
+    //}
+
+
+    //private void CloseInventory()
+    //{
+    //    _extendUI.gameObject.SetActive(false);
+    //}
+
+    public void Toggle()
     {
-        _extendUI.gameObject.SetActive(true);
+        if (IsOpen())
+        {
+            _extendUI.SetActive(false);
+
+        }
+        else
+        {
+            _extendUI.SetActive(true);
+
+        }
     }
 
-
-    private void CloseInventory()
+    public bool IsOpen()
     {
-        _extendUI.gameObject.SetActive(false);
+        return _extendUI.activeInHierarchy;
     }
 }
