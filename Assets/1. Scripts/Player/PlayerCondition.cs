@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public interface IDamagalbe
 {
@@ -14,6 +15,7 @@ public interface IDamagalbe
 
 public class PlayerCondition : MonoBehaviour, IDamagalbe
 {
+
     public UICondition uiCondition;
 
     Condition health { get { return uiCondition.health; } }
@@ -22,7 +24,7 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
     Condition stamina { get { return uiCondition.stamina; } }
     Condition temperature { get { return uiCondition.temperature; } }
 
-    private bool isDead = false;
+    public bool isDead = false;
 
     public float noHungerHealthDecay;
 
@@ -32,9 +34,12 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
 
     public event Action onTakeDamage;
 
+    public GameObject GameOver;
+
     private void Start()
     {
 
+        GameOver.SetActive(false);
     }
 
     private void Update()
@@ -71,7 +76,6 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
         {
             health.Subtract(temperatureHealthDecay * Time.deltaTime);
         }
-
     }
 
     public float Getstamina()
@@ -111,9 +115,14 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
         water.Add(amount);
     }
 
+    public void HealStamina(float amount)
+    {
+        stamina.Add(amount);
+    }
+
     public void Die()
     {
-        Debug.Log("Á×À½");
+        GameOver.SetActive(true);
         isDead = true;
     }
 

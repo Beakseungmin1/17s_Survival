@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c514b2cd10fa7d47a2774daf28ae143, type: 3}
+  m_Name: Axe
+  m_EditorClassIdentifier: 
+  itemName: "\uB3C4\uB07C"
+  itemDescription: "\uB098\uBB34\uB97C \uCC44\uCDE8\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+  itemIcon: {fileID: 21300000, guid: 6a08ec4b334ea1c46b8171679417a74f, type: 3}
+  itemType: 6
+  itemPrefabs: {fileID: 3434163385884951258, guid: 2a7ee2970cc03e24c9a31d1942892ab7, type: 3}
+  isCanStack: 0
+  maxStack: 0
+  EquipPrefab: {fileID: 1015773749619861310, guid: b80208a09acc8cd4eaabf1594a9b7bb1, type: 3}
+  dropPrefab: {fileID: 3434163385884951258, guid: 2a7ee2970cc03e24c9a31d1942892ab7, type: 3}
+  WeaponType: 1
+  Damage: 10
+  AttackDistance: 1
+  ResourceDamage: 5

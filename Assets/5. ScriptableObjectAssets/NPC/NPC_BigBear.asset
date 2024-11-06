@@ -19,10 +19,10 @@ MonoBehaviour:
   runSpeed: 3
   fieldOfView: 120
   dropOnDeath:
-  - {fileID: 11400000, guid: e6928fb5386800740a1476e5ea1f5c2f, type: 2}
-  - {fileID: 11400000, guid: e6928fb5386800740a1476e5ea1f5c2f, type: 2}
-  - {fileID: 11400000, guid: 6d78453133d35754ebc0133723c33825, type: 2}
-  - {fileID: 11400000, guid: 6d78453133d35754ebc0133723c33825, type: 2}
+  - {fileID: 11400000, guid: d6f712048f8203c48b086cadee58f9c3, type: 2}
+  - {fileID: 11400000, guid: d6f712048f8203c48b086cadee58f9c3, type: 2}
+  - {fileID: 11400000, guid: d6f712048f8203c48b086cadee58f9c3, type: 2}
+  - {fileID: 11400000, guid: d6f712048f8203c48b086cadee58f9c3, type: 2}
   - {fileID: 11400000, guid: d6f712048f8203c48b086cadee58f9c3, type: 2}
   - {fileID: 11400000, guid: d6f712048f8203c48b086cadee58f9c3, type: 2}
   detectDistance: 6

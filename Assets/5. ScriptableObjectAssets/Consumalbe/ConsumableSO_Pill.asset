@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5983166f51cfb124da7b405c17517c01, type: 3}
+  m_Name: ConsumableSO_Pill
+  m_EditorClassIdentifier: 
+  itemName: "\uD68C\uBCF5\uC57D"
+  itemDescription: Pill
+  itemIcon: {fileID: 21300000, guid: 117b17facff65dc42b1b57deb7c21551, type: 3}
+  itemType: 1
+  itemPrefabs: {fileID: 6759504114085130111, guid: 65488121f3ea3f04790da5363be52807, type: 3}
+  isCanStack: 1
+  maxStack: 10
+  EquipPrefab: {fileID: 0}
+  dropPrefab: {fileID: 6759504114085130111, guid: 65488121f3ea3f04790da5363be52807, type: 3}
+  consumableType: 0
+  value: 30

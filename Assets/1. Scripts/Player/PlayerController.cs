@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
 
     public Action inventory;
     public Action mouseLeftClick;
+    public Action PressedKeyPad;
+
     public int selectedNumber; // add min jun
     private Rigidbody _rigidbody;
 
@@ -52,6 +54,11 @@ public class PlayerController : MonoBehaviour
         if (canLook)
         {
             CameraLook();
+        }
+
+        if (CharacterManager.Instance.Player.condition.isDead)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 
@@ -194,6 +201,7 @@ public class PlayerController : MonoBehaviour
             if (int.TryParse(key, out selectedNumber))
             {
                 selectedNumber -= 1;
+                PressedKeyPad?.Invoke();
                 Debug.Log(selectedNumber);
             }
         }

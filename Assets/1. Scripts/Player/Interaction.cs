@@ -70,6 +70,7 @@ public class Interaction : MonoBehaviour
             curInteractGameObject = null;
             curInteractable = null;
             prompText.gameObject.SetActive(false);
+
         }
     }
 

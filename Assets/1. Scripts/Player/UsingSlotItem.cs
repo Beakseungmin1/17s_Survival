@@ -2,15 +2,22 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UsingSlotItem : MonoBehaviour
 {
     [SerializeField] private Inventory _inventory;
     private PlayerController _playerController;
+    private PlayerCondition _playerCondition;
     private CraftingItem _craftingItem;
+    private GameObject curHand;
+    private Outline curSlot;
+    [SerializeField] private Transform EquipPosition;
 
     [SerializeField] private float _maxDistance = 10;
     [SerializeField] private LayerMask _previewLayer;
+
+    Animator animator;
 
     private Camera _camera;
     private Dictionary<WeaponType, ResourceType> matchingTypeDict = new Dictionary<WeaponType, ResourceType>
@@ -23,6 +30,7 @@ public class UsingSlotItem : MonoBehaviour
     {
         _camera = Camera.main;
         _playerController = GetComponent<PlayerController>();
+        _playerCondition = GetComponent<PlayerCondition>();
 
         _inventory = FindAnyObjectByType<Inventory>();
         _craftingItem = FindAnyObjectByType<CraftingItem>();
@@ -32,8 +40,51 @@ public class UsingSlotItem : MonoBehaviour
     private void Start()
     {
         _playerController.mouseLeftClick += OnClickLeftMouseButton;
+        _playerController.PressedKeyPad += OnkeypadPress;
+
     }
 
+    public void OnkeypadPress()
+    {
+        if (_playerController.selectedNumber < 5)
+        {
+            if (curSlot == null)
+            {
+                curSlot = _inventory.slots[_playerController.selectedNumber].GetComponent<Outline>();
+                curSlot.enabled = true;
+            }
+            else
+            {
+                curSlot.enabled = false;
+                curSlot = _inventory.slots[_playerController.selectedNumber].GetComponent<Outline>();
+                curSlot.enabled = true;
+            }
+
+            if (_inventory.slots[_playerController.selectedNumber].item is WeaponSO curWeapon)
+            {
+                if (curWeapon.EquipPrefab != null)
+                {
+                    if (curHand == null)
+                    {
+                        curHand = Instantiate(curWeapon.EquipPrefab, EquipPosition);
+                    }
+                    else
+                    {
+                        Destroy(curHand);
+                        curHand = Instantiate(curWeapon.EquipPrefab, EquipPosition);
+                    }
+                }
+
+            }
+            else
+            {
+                Destroy(curHand);
+                curHand = null;
+            }
+
+
+        }
+    }
 
     public void OnClickLeftMouseButton()
     {
@@ -98,19 +149,19 @@ public class UsingSlotItem : MonoBehaviour
         switch (consumableSO.consumableType) // use Value in consumableSO
         {
             case ConsumableType.Health:
-
+                _playerCondition.Heal(consumableSO.value);
                 _inventory.slots[soltNumber].SetSlotCount(-1);
                 break;
             case ConsumableType.Hungry:
-
+                _playerCondition.EatFood(consumableSO.value);
                 _inventory.slots[soltNumber].SetSlotCount(-1);
                 break;
             case ConsumableType.Thirst:
-
+                _playerCondition.DrinkWater(consumableSO.value);
                 _inventory.slots[soltNumber].SetSlotCount(-1);
                 break;
             case ConsumableType.Stamina:
-
+                _playerCondition.HealStamina(consumableSO.value);
                 _inventory.slots[soltNumber].SetSlotCount(-1);
                 break;
         }
@@ -141,32 +192,11 @@ public class UsingSlotItem : MonoBehaviour
 
     private void Attack(int soltNumber)
     {
-        ItemSO item = _inventory.slots[soltNumber].item;
-        Ray ray = _camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-        RaycastHit hit;
 
-        // Damage and range are given to each weapon
-        // Damage and resource damage are different values
-        if (item is WeaponSO weapon)
-        {
-            if (Physics.Raycast(ray, out hit, weapon.AttackDistance))
-            {
-                // If you want to use it, create a Resource script for the lecture.
-                if (weapon.itemType == ItemType.Tool && hit.collider.TryGetComponent(out Resource resource))
-                {
-                    if (matchingTypeDict[weapon.WeaponType] == resource.resourceType)
-                    {
-                        resource.Gether(weapon.ResourceDamage);
-                    }
-                }
+        animator = curHand.GetComponent<Animator>();
 
-                if (hit.collider.TryGetComponent(out NPC npc))
-                {
-                    npc.TakePhysicalDamage(weapon.Damage);
-                }
-            }
-        }
+        animator.SetTrigger("Attack");
+
     }
-
 
 }

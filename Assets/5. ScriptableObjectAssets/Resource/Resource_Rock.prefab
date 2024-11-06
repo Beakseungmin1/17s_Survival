@@ -266,7 +266,9 @@ MonoBehaviour:
   itemToGive: {fileID: 11400000, guid: a696a0270939bd9449c9d08632064561, type: 2}
   resourceType: 1
   howManyGive: 3
-  ResourceHP: 10
+  resourceHP: 10
+  initialHP: 10
+  DELAY: 10
 --- !u!1 &8146245471365275655
 GameObject:
   m_ObjectHideFlags: 0
