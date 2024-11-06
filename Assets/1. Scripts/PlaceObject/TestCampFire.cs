@@ -7,6 +7,7 @@ public class TestCampFire : MonoBehaviour
     public float damage;
     public float damageRate;
     public float temvalue;
+    public float sectemvalue;
 
     List<IDamagalbe> things = new List<IDamagalbe>();
 
@@ -49,6 +50,15 @@ public class TestCampFire : MonoBehaviour
         if (other.TryGetComponent(out IDamagalbe damagable))
         {
             things.Remove(damagable);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            CharacterManager.Instance.Player.condition.Addtemperature(sectemvalue * Time.deltaTime);
+
         }
     }
 
