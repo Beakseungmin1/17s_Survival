@@ -68,6 +68,8 @@ public class CraftingItem : MonoBehaviour
 
     public void Build() // instantiate preview prefabs last PreviewPositionUpdate()
     {
+        AudioManager.Instance.PlaySFX(PlayerSFX.Walk4);
+
         if (_previewBuilding.GetComponent<CraftingPreview>().isBuildable())
         {
             ItemInfomation itemInfomation = _previewBuilding.GetComponent<ItemInfomation>();

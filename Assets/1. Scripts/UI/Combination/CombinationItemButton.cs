@@ -50,6 +50,7 @@ public class CombinationItemButton : MonoBehaviour
 
     public void OnMakeItem()
     {
+        AudioManager.Instance.PlaySFX(UISFX.Click);
         _combinationItem.MakeItem(_targetItem);
     }
 }
