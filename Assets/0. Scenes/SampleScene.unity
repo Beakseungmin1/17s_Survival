@@ -2671,6 +2671,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 4417372876866333305, guid: 23fd9b8bf2e859b4d87f3b88cbfafad1, type: 3}
+      propertyPath: m_Name
+      value: Treeses
+      objectReference: {fileID: 0}
     - target: {fileID: 4422208023952154880, guid: 23fd9b8bf2e859b4d87f3b88cbfafad1, type: 3}
       propertyPath: m_Layer
       value: 7

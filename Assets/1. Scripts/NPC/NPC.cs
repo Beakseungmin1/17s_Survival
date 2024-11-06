@@ -216,10 +216,12 @@ public class NPC : MonoBehaviour, IDamagalbe
     {
         Debug.Log("hit!");
         curHealth -= damage;
+        // AudioManager.Instance.PlaySFX(); Hit SFX Needed
+
         if (curHealth <= 0)
         {
             Die();
-        }            
+        }
     }
 
     void Die()
