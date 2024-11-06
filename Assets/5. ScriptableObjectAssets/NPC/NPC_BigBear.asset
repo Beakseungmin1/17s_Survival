@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcType: 1
   npcName: BigBear
-  maxHealth: 10
+  maxHealth: 150
   walkSpeed: 1
   runSpeed: 3
   fieldOfView: 120

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcType: 1
   npcName: Native
-  maxHealth: 10
+  maxHealth: 70
   walkSpeed: 3
   runSpeed: 5
   fieldOfView: 150
