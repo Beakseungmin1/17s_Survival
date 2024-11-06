@@ -7,9 +7,8 @@ public class EscapeBoat : MonoBehaviour, Iinteractable
 {
     public GameObject ending;
     public bool isEnd;
-    
 
-    private void Start()
+    private void Awake()
     {
         ending.gameObject.SetActive(false);
     }
@@ -25,7 +24,7 @@ public class EscapeBoat : MonoBehaviour, Iinteractable
     public string GetInteractPrompt()
     {
 
-        string str = $"≈ª√‚«œ±‚";
+        string str = $"[E]≈ª√‚«œ±‚";
         return str;
     }
 
