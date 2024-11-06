@@ -20,5 +20,6 @@ MonoBehaviour:
   isCanStack: 1
   maxStack: 10
   EquipPrefab: {fileID: 0}
+  dropPrefab: {fileID: 5179466539451223705, guid: 3e92f8b56c376a347bceda8e8a10edfc, type: 3}
   consumableType: 0
   value: 20
