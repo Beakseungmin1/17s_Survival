@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        // Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void FixedUpdate()
@@ -136,8 +136,8 @@ public class PlayerController : MonoBehaviour
 
         for (int i = 0; i < rays.Length; i++)
         {
-            // rays에 있는 레이의, 0.1f 길이만큼, groundlayermask 에 포함되는 레이어만 
-            if (Physics.Raycast(rays[i], 0.1f, groundLayerMask))
+            // rays에 있는 레이의, 0.3f 길이만큼, groundlayermask 에 포함되는 레이어만 
+            if (Physics.Raycast(rays[i], 0.3f, groundLayerMask))
             {
                 return true;
             }

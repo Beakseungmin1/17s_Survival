@@ -32,7 +32,7 @@ public class UsingSlotItem : MonoBehaviour
 
     public void OnClickLeftMouseButton()
     {
-        if (_inventory.isInventoryOpend) return;
+        if (_inventory.IsOpen()) return;
         if (_craftingItem._isPreviewActive)
         {
             _craftingItem.Build();
