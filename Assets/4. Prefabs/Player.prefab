@@ -3055,7 +3055,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 247
+    m_Bits: 114935
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3712,7 +3712,6 @@ GameObject:
   - component: {fileID: 4863057722948058697}
   - component: {fileID: 5751538368130291201}
   - component: {fileID: 4687738990005205220}
-  - component: {fileID: 7811328151508949502}
   - component: {fileID: 7876075848266446860}
   m_Layer: 6
   m_Name: Player
@@ -3943,26 +3942,6 @@ MonoBehaviour:
     m_ActionId: e52c4fb4-52e9-43d5-8ab2-ce671ac8e36e
     m_ActionName: Player/Run[/Keyboard/shift]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ebc28828-fe02-4834-916b-d527ccbfadc8
-    m_ActionName: Player/HotKeyNum1[/Keyboard/1]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 763f69dc-820c-4140-83f9-ccfc2e731bdf
-    m_ActionName: Player/HotKeyNum2[/Keyboard/2]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 2fd0a803-7b5d-4b87-bb4d-2c8ffccd5315
-    m_ActionName: Player/HotKeyNum3[/Keyboard/3]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 5f2d6eae-db9b-49a8-8606-107187854124
-    m_ActionName: Player/HotKeyNum4[/Keyboard/4]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 81261a6f-aebd-4124-9f8b-c90f0d50ca30
-    m_ActionName: Player/HotKeyNum5[/Keyboard/5]
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4863057722948058697}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
@@ -4060,21 +4039,7 @@ MonoBehaviour:
     m_Bits: 128
   curInteractGameObject: {fileID: 0}
   prompText: {fileID: 0}
-  inventoryManager: {fileID: 0}
---- !u!114 &7811328151508949502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6564304197351728416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 759c6c573f6666841a330e3228d0ce59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  curEquip: {fileID: 0}
-  equipParent: {fileID: 6255934210993489096}
+  inventory: {fileID: 0}
 --- !u!114 &7876075848266446860
 MonoBehaviour:
   m_ObjectHideFlags: 0
