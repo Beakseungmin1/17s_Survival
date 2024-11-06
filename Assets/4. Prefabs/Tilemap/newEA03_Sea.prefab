@@ -73,6 +73,10 @@ PrefabInstance:
       value: newEA03_Sea
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 581c41b07e405124daec580ae7109aa5, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 581c41b07e405124daec580ae7109aa5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -94196,7 +94200,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 30127
+  m_VersionIndex: 30139
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

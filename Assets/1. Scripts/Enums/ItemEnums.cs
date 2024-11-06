@@ -4,7 +4,7 @@ public enum ItemType
     Consumable,
     Building,
     Decoration,
-    ReSource,
+    Resource,
     Weapon,
     Tool,
     All
