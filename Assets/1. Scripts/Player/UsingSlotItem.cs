@@ -13,6 +13,11 @@ public class UsingSlotItem : MonoBehaviour
     [SerializeField] private LayerMask _previewLayer;
 
     private Camera _camera;
+    private Dictionary<WeaponType, ResourceType> matchingTypeDict = new Dictionary<WeaponType, ResourceType>
+    {
+        { WeaponType.Axe, ResourceType.Wood },
+        { WeaponType.Pickax, ResourceType.Rock }
+    };
 
     private void Awake()
     {
@@ -149,7 +154,10 @@ public class UsingSlotItem : MonoBehaviour
                 // If you want to use it, create a Resource script for the lecture.
                 if (weapon.itemType == ItemType.Tool && hit.collider.TryGetComponent(out Resource resource))
                 {
-                    resource.Gether(weapon.ResourceDamage);
+                    if (matchingTypeDict[weapon.WeaponType] == resource.resourceType)
+                    {
+                        resource.Gether(weapon.ResourceDamage);
+                    }
                 }
 
                 if (hit.collider.TryGetComponent(out NPC npc))

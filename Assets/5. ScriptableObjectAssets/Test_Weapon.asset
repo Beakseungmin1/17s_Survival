@@ -21,6 +21,7 @@ MonoBehaviour:
   maxStack: 0
   EquipPrefab: {fileID: 0}
   dropPrefab: {fileID: 0}
+  WeaponType: 1
   Damage: 10
   AttackDistance: 0.6
   ResourceDamage: 5

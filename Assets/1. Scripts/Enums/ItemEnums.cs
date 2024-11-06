@@ -41,3 +41,10 @@ public enum SlotType
     ExtendTop,
     ExtendBottom
 }
+
+public enum WeaponType
+{
+    Weapon,
+    Axe,
+    Pickax
+}
