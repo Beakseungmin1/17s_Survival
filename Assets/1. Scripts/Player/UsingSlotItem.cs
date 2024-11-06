@@ -70,7 +70,7 @@ public class UsingSlotItem : MonoBehaviour
             case ItemType.Consumable:
                 UseConsumableItem(soltNumber);
                 break;
-            case ItemType.ReSource:
+            case ItemType.Resource:
                 InteractionPreviewBuilding(soltNumber);
                 break;
             case ItemType.Weapon:
