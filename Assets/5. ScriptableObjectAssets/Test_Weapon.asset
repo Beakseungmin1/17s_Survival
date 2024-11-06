@@ -22,5 +22,5 @@ MonoBehaviour:
   EquipPrefab: {fileID: 0}
   dropPrefab: {fileID: 0}
   Damage: 10
-  AttackDistance: 0.3
+  AttackDistance: 0.6
   ResourceDamage: 5
