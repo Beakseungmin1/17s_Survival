@@ -19,9 +19,9 @@ MonoBehaviour:
   itemPrefabs: {fileID: 3434163385884951258, guid: 2a7ee2970cc03e24c9a31d1942892ab7, type: 3}
   isCanStack: 0
   maxStack: 0
-  EquipPrefab: {fileID: 1248556739041938214, guid: 35fd4ff64496b62458bef35c4ef1f72b, type: 3}
+  EquipPrefab: {fileID: 1015773749619861310, guid: b80208a09acc8cd4eaabf1594a9b7bb1, type: 3}
   dropPrefab: {fileID: 3434163385884951258, guid: 2a7ee2970cc03e24c9a31d1942892ab7, type: 3}
   WeaponType: 1
   Damage: 10
-  AttackDistance: 0.6
+  AttackDistance: 1
   ResourceDamage: 5

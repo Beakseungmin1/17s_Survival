@@ -19,7 +19,7 @@ MonoBehaviour:
   runSpeed: 4
   fieldOfView: 120
   dropOnDeath:
-  - {fileID: 11400000, guid: a5c100c0f72c61e4dae3a8fc9226c123, type: 2}
+  - {fileID: 11400000, guid: d6f712048f8203c48b086cadee58f9c3, type: 2}
   detectDistance: 5
   minWanderDistance: 2
   maxWanderDistance: 10

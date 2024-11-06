@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5983166f51cfb124da7b405c17517c01, type: 3}
   m_Name: ConsumableSO_Water
   m_EditorClassIdentifier: 
-  itemName: Water
+  itemName: "\uBB3C"
   itemDescription: WaterWater
   itemIcon: {fileID: 21300000, guid: bd6e2fa6fad540649b048c712e3847a0, type: 3}
   itemType: 1
