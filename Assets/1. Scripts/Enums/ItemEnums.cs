@@ -30,7 +30,7 @@ public enum ConsumableType
 
 public enum ResourceType
 {
-    Wood,
+    Tree,
     Rock,
 }
 

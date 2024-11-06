@@ -15,7 +15,7 @@ public class UsingSlotItem : MonoBehaviour
     private Camera _camera;
     private Dictionary<WeaponType, ResourceType> matchingTypeDict = new Dictionary<WeaponType, ResourceType>
     {
-        { WeaponType.Axe, ResourceType.Wood },
+        { WeaponType.Axe, ResourceType.Tree },
         { WeaponType.Pickax, ResourceType.Rock }
     };
 
