@@ -76,11 +76,6 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
         {
             health.Subtract(temperatureHealthDecay * Time.deltaTime);
         }
-
-        if(isDead)
-        {
-
-        }
     }
 
     public float Getstamina()

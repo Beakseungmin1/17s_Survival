@@ -8,6 +8,13 @@ public class Colleague : MonoBehaviour, Iinteractable
     public bool isSaveColleague = false;
     public Transform escapePosition;
 
+    public GameObject boat;
+
+    private void Start()
+    {
+        boat.SetActive(false);
+    }
+
     public string GetInteractPrompt()
     {
         if (isSaveColleague)
@@ -33,6 +40,7 @@ public class Colleague : MonoBehaviour, Iinteractable
 
         transform.position = escapePosition.position;
         transform.rotation = Quaternion.Euler(0, 270f, 0);
+        boat.SetActive(true);
         //Destroy(colleague);
         Debug.Log("구출 완료");
     }

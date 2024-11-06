@@ -27,11 +27,11 @@ public class temperatureUI : MonoBehaviour
 
         if (temperature >= 60f)
         {
-            hotAlpha = Mathf.Clamp((temperature - 60f) / 30f * (120f / 255f), 0f, 120f / 255f);
+            hotAlpha = Mathf.Clamp((temperature - 60f) / 30f * (100f / 255f), 0f, 100f / 255f);
         }
         else if (temperature <= 40f)
         {
-            coldAlpha = Mathf.Clamp((40f - temperature) / 30f * (120f / 255f), 0f, 120f / 255f);
+            coldAlpha = Mathf.Clamp((40f - temperature) / 30f * (100f / 255f), 0f, 100f / 255f);
         }
         else
         {
