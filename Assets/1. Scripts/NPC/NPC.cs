@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class NPC : MonoBehaviour, IDamagalbe
 {
     public NPCBase npcInfo;
-    
+
     public float curHealth;
     private float lastAttackTime;
     private float distanceFromPlayer;
@@ -40,7 +40,7 @@ public class NPC : MonoBehaviour, IDamagalbe
 
         switch (aiState)
         {
-            case AIState.Idle:                
+            case AIState.Idle:
             case AIState.Wandering:
                 PassiveUpdate();
                 break;
@@ -116,7 +116,7 @@ public class NPC : MonoBehaviour, IDamagalbe
         }
         else
         {
-            if(distanceFromPlayer < npcInfo.detectDistance)
+            if (distanceFromPlayer < npcInfo.detectDistance)
             {
                 agent.isStopped = false;
                 NavMeshPath path = new NavMeshPath();
@@ -216,7 +216,7 @@ public class NPC : MonoBehaviour, IDamagalbe
     {
         Debug.Log("hit!");
         curHealth -= damage;
-        // AudioManager.Instance.PlaySFX(); Hit SFX Needed
+        AudioManager.Instance.PlaySFX(EnemySFX.Hit);
 
         if (curHealth <= 0)
         {

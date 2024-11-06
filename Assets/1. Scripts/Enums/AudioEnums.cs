@@ -11,6 +11,13 @@ public enum PlayerSFX
 }
 
 
+public enum EnemySFX
+{
+    Attack,
+    Hit
+}
+
+
 public enum UISFX
 {
     OpenUI,

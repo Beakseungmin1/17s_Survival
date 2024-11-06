@@ -1223,3 +1223,6 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 182526437df8d514daa0c64274e11388, type: 3}
   - name: 0
     clip: {fileID: 8300000, guid: f581f05a21e4d1d4184c3d34e646086c, type: 3}
+  _enemySFX:
+  - name: 0
+    clip: {fileID: 0}
