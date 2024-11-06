@@ -105,33 +105,56 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 return;
             }
 
-            if (_slotAllowedItemType == DragSlot.Instance.dargSlot.item.itemType)
+            if (_slotAllowedItemType == ItemType.Equipment)
             {
-                CheckEquipmentType(DragSlot.Instance.dargSlot.item);
-                ClearDragSlot();
+                ChangeSlotEquipmentType();
                 return;
-            }
-            else
-            {
-                ClearDragSlot();
             }
         }
     }
 
 
-    private void CheckEquipmentType(ItemSO item)
+    private void ChangeSlot()
     {
-        EquipmentSO equipmentSO = (EquipmentSO)item;
+        ItemSO tempItem = item;
+        int tempCount = itemCount;
 
-        if (equipmentSO == null) return;
+        AddItem(DragSlot.Instance.dargSlot.item, DragSlot.Instance.itemCount); // draged item add this slot
 
-        if (equipmentSO.equipmentType == _slotAllowedEquipmentType)
+        if (tempItem != null)
         {
-            int hpValue = equipmentSO.IncreaseHpStat;
-            int staminaValue = equipmentSO.IncreaseStaminaStat;
+            DragSlot.Instance.dargSlot.AddItem(tempItem, tempCount);
+        }
+        else
+        {
+            DragSlot.Instance.dargSlot.ClearSlot();
+        }
+    }
 
-            // MethodName(hpValue, staminaValue);
-            // increase hp or stamina maxValue
+    private void ChangeSlotEquipmentType()
+    {
+
+        ItemSO tempItem = item;
+        int tempCount = itemCount;
+
+        if (DragSlot.Instance.dargSlot.item is EquipmentSO)
+        {
+            EquipmentSO equipmentSO = (EquipmentSO)DragSlot.Instance.dargSlot.item;
+            Debug.Log("여기까지 실행됨");
+            if (_slotAllowedEquipmentType == equipmentSO.equipmentType)
+            {
+                AddItem(DragSlot.Instance.dargSlot.item, DragSlot.Instance.itemCount);
+
+                int hpValue = equipmentSO.IncreaseHpStat;
+                int staminaValue = equipmentSO.IncreaseStaminaStat;
+
+                // MethodName(hpValue, staminaValue);
+                // increase hp or stamina maxValue
+            }
+            else
+            {
+                ClearDragSlot();
+            }
         }
     }
 
@@ -142,32 +165,4 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         DragSlot.Instance.dargSlot = null;
     }
 
-
-    private void ChangeSlot()
-    {
-        ItemSO tempItem = item;
-        int tempCount = itemCount;
-
-        AddItem(DragSlot.Instance.dargSlot.item, DragSlot.Instance.itemCount);
-
-        if (tempItem != null)
-        {
-            DragSlot.Instance.dargSlot.AddItem(tempItem, tempCount);
-
-            if (tempItem.itemType == ItemType.Equipment)
-            {
-                EquipmentSO equipmentSO = (EquipmentSO)tempItem;
-
-                int hpValue = equipmentSO.IncreaseHpStat;
-                int staminaValue = equipmentSO.IncreaseStaminaStat;
-
-                // MethodName(hpValue, staminaValue);
-                // increase hp or stamina maxValue
-            }
-        }
-        else
-        {
-            DragSlot.Instance.dargSlot.ClearSlot();
-        }
-    }
 }
