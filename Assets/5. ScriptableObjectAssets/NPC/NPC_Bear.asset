@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcType: 1
   npcName: Bear
-  maxHealth: 5
+  maxHealth: 100
   walkSpeed: 1
   runSpeed: 3
   fieldOfView: 120

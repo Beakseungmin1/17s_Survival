@@ -3,6 +3,7 @@ using UnityEngine;
 public class Resource : MonoBehaviour
 {
     public ItemSO itemToGive; // 어떤 아이템을 주는지
+    public ResourceType resourceType;
     public int howManyGive; // 아이템 몇개주는지
     public float ResourceHP; // 리소스체력
 

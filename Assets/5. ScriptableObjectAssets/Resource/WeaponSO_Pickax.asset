@@ -15,9 +15,13 @@ MonoBehaviour:
   itemName: "\uACE1\uAD2D\uC774"
   itemDescription: "\uB3CC\uC744 \uCC44\uCDE8\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
   itemIcon: {fileID: 21300000, guid: 1fb46228a3bcb5042a763829cc07f9e5, type: 3}
-  itemType: 0
+  itemType: 6
   itemPrefabs: {fileID: 4778601007441169686, guid: b88c3596e4b317a4bb343320600e735c, type: 3}
   isCanStack: 0
   maxStack: 0
   EquipPrefab: {fileID: 1248556739041938214, guid: 35fd4ff64496b62458bef35c4ef1f72b, type: 3}
   dropPrefab: {fileID: 4778601007441169686, guid: b88c3596e4b317a4bb343320600e735c, type: 3}
+  WeaponType: 2
+  Damage: 10
+  AttackDistance: 0.6
+  ResourceDamage: 5

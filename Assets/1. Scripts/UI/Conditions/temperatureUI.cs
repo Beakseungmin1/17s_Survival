@@ -21,50 +21,32 @@ public class temperatureUI : MonoBehaviour
         condition = CharacterManager.Instance.Player.condition;
     }
 
-    private void Update()
+    void Update()
     {
-        if (condition.Gettemperature() >= 70f)
+        float temperature = condition.Gettemperature();
+
+        if (temperature >= 60f)
         {
-            FadeIn(Hotimage);
+            hotAlpha = Mathf.Clamp((temperature - 60f) / 30f * (120f / 255f), 0f, 120f / 255f);
         }
-        else if (condition.Gettemperature() <= 30f)
+        else if (temperature <= 40f)
         {
-            FadeIn(Coldimage);
+            coldAlpha = Mathf.Clamp((40f - temperature) / 30f * (120f / 255f), 0f, 120f / 255f);
         }
         else
         {
-            FadeOut(Hotimage);
-            FadeOut(Coldimage);
+            hotAlpha = 0f;
+            coldAlpha = 0f;
         }
+
+        UpdateImageAlpha(Hotimage, hotAlpha);
+        UpdateImageAlpha(Coldimage, coldAlpha);
     }
 
-    public void FadeIn(Image image)
+    private void UpdateImageAlpha(Image image, float alpha)
     {
-        if (image == Hotimage && hotAlpha < 90f / 255f)
-        {
-            hotAlpha += FadeSpeed * Time.deltaTime;
-            image.color = new Color(image.color.r, image.color.g, image.color.b, hotAlpha);
-        }
-        else if (image == Coldimage && coldAlpha < 90f / 255f)
-        {
-            coldAlpha += FadeSpeed * Time.deltaTime;
-            image.color = new Color(image.color.r, image.color.g, image.color.b, coldAlpha);
-        }
-    }
-
-    public void FadeOut(Image image)
-    {
-        if (image == Hotimage && hotAlpha > 0f)
-        {
-            hotAlpha -= FadeSpeed * Time.deltaTime;
-            hotAlpha = Mathf.Clamp(hotAlpha, 0f, 90f / 255f);
-            image.color = new Color(image.color.r, image.color.g, image.color.b, hotAlpha);
-        }
-        else if (image == Coldimage && coldAlpha > 0f)
-        {
-            coldAlpha -= FadeSpeed * Time.deltaTime;
-            coldAlpha = Mathf.Clamp(coldAlpha, 0f, 90f / 255f);
-            image.color = new Color(image.color.r, image.color.g, image.color.b, coldAlpha);
-        }
+        Color color = image.color;
+        color.a = alpha;
+        image.color = color;
     }
 }
