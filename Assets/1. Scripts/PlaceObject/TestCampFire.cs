@@ -6,6 +6,7 @@ public class TestCampFire : MonoBehaviour
 {
     public float damage;
     public float damageRate;
+    public float temvalue;
 
     List<IDamagalbe> things = new List<IDamagalbe>();
 
@@ -13,11 +14,6 @@ public class TestCampFire : MonoBehaviour
     {
         InvokeRepeating("DealDamage", 0, damageRate);
 
-    }
-
-    void Update()
-    {
-        
     }
 
     void DealDamage()
@@ -30,7 +26,13 @@ public class TestCampFire : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out IDamagalbe damagalbe))
+        if (other.gameObject.CompareTag("Player"))
+        {
+            CharacterManager.Instance.Player.condition.Addtemperature(temvalue);
+
+        }
+
+        if (other.TryGetComponent(out IDamagalbe damagalbe))
         {
             things.Add(damagalbe);
         }
@@ -38,11 +40,16 @@ public class TestCampFire : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.TryGetComponent(out IDamagalbe damagable))
+        if (other.gameObject.CompareTag("Player"))
+        {
+            CharacterManager.Instance.Player.condition.Subtracttemperature(temvalue);
+
+        }
+
+        if (other.TryGetComponent(out IDamagalbe damagable))
         {
             things.Remove(damagable);
         }
     }
-
 
 }
