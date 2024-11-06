@@ -1,17 +1,16 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
 
 public class Build : MonoBehaviour
 {
+    [Header("Building Item Informaton")]
     private ItemInfomation _itemInfomation;
     private BuildingItemSO buildingItemSO;
 
+    [Header("need ingredient")]
     [SerializeField] private ItemSO needItem;
     [SerializeField] private int needCount;
+
     private int currentItemCount;
 
 
@@ -19,8 +18,9 @@ public class Build : MonoBehaviour
     {
         _itemInfomation = GetComponent<ItemInfomation>();
 
-        buildingItemSO = (BuildingItemSO)_itemInfomation.item;
+        buildingItemSO = (BuildingItemSO)_itemInfomation.item; // ??
     }
+
 
     public bool CheckNeedItem(ItemSO item)
     {
@@ -33,7 +33,7 @@ public class Build : MonoBehaviour
     }
 
 
-    public void SetIngredient(ItemSO item, int quntity = 1)
+    public void AddIngredientCount(ItemSO item, int quntity = 1)
     {
         if (item == needItem)
         {
@@ -43,6 +43,7 @@ public class Build : MonoBehaviour
         CheckQuntity();
     }
 
+
     private void CheckQuntity()
     {
         if (needCount == currentItemCount)
@@ -51,9 +52,10 @@ public class Build : MonoBehaviour
         }
     }
 
+
     private void BuildArchitecture()
     {
-        Instantiate(buildingItemSO.itemPrefabs, transform.position, quaternion.identity);
-        Destroy(gameObject);
+        Instantiate(buildingItemSO.itemPrefabs, transform.position, Quaternion.identity);
+        Destroy(gameObject); // destroy preview building
     }
 }

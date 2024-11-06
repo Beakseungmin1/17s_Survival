@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: pence
   itemDescription: pencepence
-  itemIcon: {fileID: 21300000, guid: adc9b88613ad28348bd2eec84978f2b9, type: 3}
+  itemIcon: {fileID: 21300000, guid: c06924b4f52909340a3db45b761e8ce5, type: 3}
   itemType: 2
   itemPrefabs: {fileID: 6541654738634855748, guid: 0fcfde87fb86fef4ca4774428cb71806, type: 3}
   isCanStack: 0
   maxStack: 0
+  EquipPrefab: {fileID: 0}
   previewItemPrefabs: {fileID: 5804924860971554843, guid: de81ad4cc3b26e94983678b60d9e0032, type: 3}

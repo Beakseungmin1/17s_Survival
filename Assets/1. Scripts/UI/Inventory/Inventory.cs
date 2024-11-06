@@ -1,53 +1,23 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 
 public class Inventory : MonoBehaviour
 {
-
-    public ItemSO testItem;
-    //public bool isInventoryOpend = false;
-
-    private PlayerController controller;
-
+    [Header("UI")]
     [SerializeField] private GameObject _slotsParent;
     [SerializeField] private GameObject _extendUI;
+
+    [Header("Slots Data")]
     [HideInInspector] public Slot[] slots = new Slot[26];
+
+    [Tooltip("player object transform in hierarchy")]
+    [SerializeField] private Transform _playerTransform;
 
 
     private void Awake()
     {
         slots = _slotsParent.GetComponentsInChildren<Slot>();
-    }
-
-    private void Start()
-    {
-        controller = CharacterManager.Instance.Player.GetComponent<PlayerController>();
-
-        //controller.inventory += Toggle;
-
-        _extendUI.gameObject.SetActive(false);
-    }
-
-
-    private void Update() // integrate uis
-    {
-        //if (Input.GetKeyDown(KeyCode.I))
-        //{
-        //    isInventoryOpend = !isInventoryOpend;
-
-        //    if (isInventoryOpend)
-        //    {
-        //        OpenInventory();
-        //    }
-        //    else
-        //    {
-        //        CloseInventory();
-        //    }
-        //}
     }
 
 
@@ -94,39 +64,8 @@ public class Inventory : MonoBehaviour
     }
 
 
-    private void ThrowItem(ItemSO item)
+    private void ThrowItem(ItemSO item) // when the inventory is full
     {
-        // Instantiate(item, transform.position, quaternion.identity); // tf.positon -> playerPositon
-    }
-
-
-    //private void OpenInventory()
-    //{
-    //    _extendUI.gameObject.SetActive(true);
-    //}
-
-
-    //private void CloseInventory()
-    //{
-    //    _extendUI.gameObject.SetActive(false);
-    //}
-
-    public void Toggle()
-    {
-        if (IsOpen())
-        {
-            _extendUI.SetActive(false);
-
-        }
-        else
-        {
-            _extendUI.SetActive(true);
-
-        }
-    }
-
-    public bool IsOpen()
-    {
-        return _extendUI.activeInHierarchy;
+        Instantiate(item, _playerTransform.transform.position + new Vector3(0, 0, 1), Quaternion.identity);
     }
 }

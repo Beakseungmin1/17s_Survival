@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: WoodDoor
   itemDescription: WoodDoorWoodDoor
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 7905479a4c9525f4f9299e01134cbd96, type: 3}
   itemType: 2
   itemPrefabs: {fileID: 8023996828114733056, guid: d35e3b53cbe96044f82dd81be8e96e6b, type: 3}
   isCanStack: 0
   maxStack: 0
+  EquipPrefab: {fileID: 0}
   previewItemPrefabs: {fileID: 2267060315005653906, guid: 4af852b9315cdba408a8e33e2607eb8f, type: 3}
