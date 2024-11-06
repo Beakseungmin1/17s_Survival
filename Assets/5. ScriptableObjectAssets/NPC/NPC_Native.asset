@@ -21,8 +21,8 @@ MonoBehaviour:
   dropOnDeath:
   - {fileID: 11400000, guid: e6928fb5386800740a1476e5ea1f5c2f, type: 2}
   detectDistance: 10
-  minWanderDistance: 2
-  maxWanderDistance: 3
+  minWanderDistance: 1
+  maxWanderDistance: 2
   minWanderWaitTime: 1
   maxWanderWaitTime: 3
   damage: 3

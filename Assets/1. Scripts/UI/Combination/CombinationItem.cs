@@ -6,7 +6,7 @@ public class CombinationItem : MonoBehaviour
 {
     [SerializeField] Inventory _inventory;
 
-    public void MakeItem(DecorationSO item)
+    public void MakeItem(EquipmentSO item)
     {
         Dictionary<int, int> itemsToConsume = new Dictionary<int, int>();
         int quantity = 0;
