@@ -48,6 +48,7 @@ public class Build : MonoBehaviour
     {
         if (needCount == currentItemCount)
         {
+            AudioManager.Instance.PlaySFX(PlayerSFX.Run1);
             BuildArchitecture();
         }
     }

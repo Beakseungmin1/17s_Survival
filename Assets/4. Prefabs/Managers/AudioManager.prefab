@@ -1197,26 +1197,26 @@ MonoBehaviour:
   _playerSFX:
   - name: 0
     clip: {fileID: 8300000, guid: b2c305fdeefa5194eaa2c69a95a9ae77, type: 3}
-  - name: 0
+  - name: 1
     clip: {fileID: 8300000, guid: 69a1cba5022b43b478202d9b934c61bb, type: 3}
-  - name: 0
+  - name: 2
     clip: {fileID: 8300000, guid: 027c416d83fd7094f8a75bb58d331ea3, type: 3}
-  - name: 0
+  - name: 3
     clip: {fileID: 8300000, guid: 398a631f92a5b2e4fbbf36e67e05e653, type: 3}
-  - name: 0
+  - name: 4
     clip: {fileID: 8300000, guid: eec53751c4e79a7469fc34e774360128, type: 3}
-  - name: 0
+  - name: 5
     clip: {fileID: 8300000, guid: dbe4405baeea2404ba3d422430b5fd3b, type: 3}
-  - name: 0
+  - name: 6
     clip: {fileID: 8300000, guid: c8657061120b2da4fb645654b16201f6, type: 3}
-  - name: 0
+  - name: 7
     clip: {fileID: 8300000, guid: 8ff53086d637af8478c1408b78b3dd05, type: 3}
   _uiSFX:
   - name: 0
     clip: {fileID: 8300000, guid: 0d54653003bc3524ab6b64cac060bd52, type: 3}
-  - name: 0
+  - name: 1
     clip: {fileID: 8300000, guid: 9b05bf85194a6994e87a326b55b12087, type: 3}
-  - name: 0
+  - name: 2
     clip: {fileID: 8300000, guid: 4e7ce19b0c9dda1458946554f940d3b8, type: 3}
   _embientSFX:
   - name: 0

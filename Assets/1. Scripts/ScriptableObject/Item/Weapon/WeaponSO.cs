@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "WeaponSO_", menuName = "ItemBase/WeaponSO", order = 3)]
 public class WeaponSO : ItemSO
 {
+    public WeaponType WeaponType;
     public float Damage;
     public float AttackDistance;
 

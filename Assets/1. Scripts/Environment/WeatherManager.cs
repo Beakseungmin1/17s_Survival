@@ -8,6 +8,8 @@ public class WeatherManager : MonoBehaviour
     private float delay;
     private WeatherState state;
 
+    private PlayerCondition condition;
+
     [Header("Snow")]
     public GameObject Snow;
     public ParticleSystem SnowParticle;
@@ -24,6 +26,8 @@ public class WeatherManager : MonoBehaviour
 
     private void Start()
     {
+        condition = CharacterManager.Instance.Player.condition;
+
         state = GetRandomWeather();
         PlayWeather();
     }
@@ -37,6 +41,16 @@ public class WeatherManager : MonoBehaviour
             StopWeather();
             state = GetRandomWeather();
             PlayWeather();
+        }
+
+        switch (state)
+        {
+            case WeatherState.Snow:
+                condition.Subtracttemperature(1f * Time.deltaTime);
+                break;
+            case WeatherState.Rain:
+                condition.Subtracttemperature(1f * Time.deltaTime);
+                break;
         }
     }
 

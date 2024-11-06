@@ -30,7 +30,7 @@ public enum ConsumableType
 
 public enum ResourceType
 {
-    Wood,
+    Tree,
     Rock,
 }
 
@@ -40,4 +40,11 @@ public enum SlotType
     Constant,
     ExtendTop,
     ExtendBottom
+}
+
+public enum WeaponType
+{
+    Weapon,
+    Axe,
+    Pickax
 }

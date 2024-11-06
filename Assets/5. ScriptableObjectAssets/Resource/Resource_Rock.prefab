@@ -176,8 +176,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8149650638859986467}
   - component: {fileID: 8346115967667237619}
+  - component: {fileID: 7908774363714698154}
   - component: {fileID: -5169047006216663380}
-  - component: {fileID: 9146106104524850291}
   m_Layer: 0
   m_Name: Resource_Rock
   m_TagString: Untagged
@@ -195,7 +195,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 16.911844, y: 16.911844, z: 16.911844}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8144550790116007409}
@@ -230,6 +230,27 @@ LODGroup:
     renderers:
     - renderer: {fileID: 8168168347347071255}
   m_Enabled: 1
+--- !u!65 &7908774363714698154
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8146109238360309931}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.51421696, y: 0.4080616, z: 0.4550767}
+  m_Center: {x: -0.020240808, y: 0.024574852, z: -0.011747695}
 --- !u!114 &-5169047006216663380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,35 +264,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemToGive: {fileID: 11400000, guid: a696a0270939bd9449c9d08632064561, type: 2}
-  quantityPerHit: 1
-  capacity: 10
---- !u!54 &9146106104524850291
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8146109238360309931}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  resourceType: 1
+  howManyGive: 3
+  ResourceHP: 10
 --- !u!1 &8146245471365275655
 GameObject:
   m_ObjectHideFlags: 0
