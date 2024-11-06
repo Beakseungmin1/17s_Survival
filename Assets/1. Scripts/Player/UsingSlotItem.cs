@@ -32,7 +32,7 @@ public class UsingSlotItem : MonoBehaviour
 
     public void OnClickLeftMouseButton()
     {
-        if (_inventory.IsOpen()) return;
+        if (UIToggle.isUIOpen) return;
         if (_craftingItem._isPreviewActive)
         {
             _craftingItem.Build();
@@ -70,7 +70,7 @@ public class UsingSlotItem : MonoBehaviour
             case ItemType.Consumable:
                 UseConsumableItem(soltNumber);
                 break;
-            case ItemType.ReSource:
+            case ItemType.Resource:
                 InteractionPreviewBuilding(soltNumber);
                 break;
             case ItemType.Weapon:
@@ -125,7 +125,7 @@ public class UsingSlotItem : MonoBehaviour
             {
                 if (build.CheckNeedItem(_inventory.slots[soltNumber].item))
                 {
-                    build.SetIngredient(_inventory.slots[soltNumber].item);
+                    build.AddIngredientCount(_inventory.slots[soltNumber].item);
                     _inventory.slots[soltNumber].SetSlotCount(-1);
                     return;
                 }

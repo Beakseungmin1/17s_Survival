@@ -10,7 +10,7 @@ public class NPCBase : ScriptableObject
     public float walkSpeed;
     public float runSpeed;
     public float fieldOfView;
-    //public ItemData[] dropOnDeath;
+    public ItemSO[] dropOnDeath;
 
     [Header("AI")]
     public float detectDistance;

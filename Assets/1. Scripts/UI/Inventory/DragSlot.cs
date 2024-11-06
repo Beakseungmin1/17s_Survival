@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,23 +6,24 @@ public class DragSlot : ConvertSingleton<DragSlot>
 {
     public Slot dargSlot;
     public int itemCount;
+
     [SerializeField] private Image _itemImage;
 
 
     protected override void Awake()
     {
-        base.Awake();
+        base.Awake(); // ConvertSingleton
     }
 
 
-    public void DragSetImage(Sprite _itemImage)
+    public void DragSlotSetImage(Sprite _itemImage)
     {
         this._itemImage.sprite = _itemImage;
-        SetColor(1);
+        DragSlotSetColor(1);
     }
 
 
-    public void SetColor(float alpha)
+    public void DragSlotSetColor(float alpha)
     {
         Color color = _itemImage.color;
         color.a = alpha;
