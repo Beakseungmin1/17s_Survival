@@ -18,7 +18,8 @@ MonoBehaviour:
   walkSpeed: 2
   runSpeed: 4
   fieldOfView: 120
-  npcPrefabs: {fileID: 6691314001356839466, guid: 54b09084d69f3c24984ceecf1f0e65e9, type: 3}
+  dropOnDeath:
+  - {fileID: 11400000, guid: d6f712048f8203c48b086cadee58f9c3, type: 2}
   detectDistance: 5
   minWanderDistance: 2
   maxWanderDistance: 10
