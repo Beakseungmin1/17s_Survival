@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class DayNightCycle : MonoBehaviour
 {
+    private PlayerCondition condition;
+
     [Range(0.0f, 1.0f)]
     public float time;
     public float fullDayLength;
@@ -25,6 +27,7 @@ public class DayNightCycle : MonoBehaviour
 
     private void Start()
     {
+        condition = CharacterManager.Instance.Player.condition;
         timeRate = 1.0f / fullDayLength;
         time = startTime;
     }
@@ -38,6 +41,11 @@ public class DayNightCycle : MonoBehaviour
 
         RenderSettings.ambientIntensity = lightingIntensityMultiplier.Evaluate(time);
         RenderSettings.reflectionIntensity = reflectionIntensityMultiplier.Evaluate(time);
+
+        if(moon.gameObject.activeInHierarchy)
+        {
+            condition.Subtracttemperature(0.5f * Time.deltaTime);
+        }
 
     }
 
