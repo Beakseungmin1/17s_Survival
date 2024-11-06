@@ -6022,7 +6022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a06605adc698d4bbfc482125925a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemToGive: {fileID: 11400000, guid: dc97634486befff4ab270c8b961489c3, type: 2}
+  itemToGive: {fileID: 11400000, guid: 69a653100e1192440a1a2ca16501a57d, type: 2}
   resourceType: 0
   howManyGive: 3
   ResourceHP: 10
