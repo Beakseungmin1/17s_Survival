@@ -17,6 +17,7 @@ public class ChangeVolume : MonoBehaviour
     private float _musicVolume;
     private float _sfxVolume;
 
+
     private void Awake()
     {
         _masterSlider.value = PlayerPrefs.GetFloat("Master", 0.5f);
@@ -26,7 +27,6 @@ public class ChangeVolume : MonoBehaviour
         Debug.Log(PlayerPrefs.GetFloat("Master"));
         Debug.Log(PlayerPrefs.GetFloat("Music"));
         Debug.Log(PlayerPrefs.GetFloat("SFX"));
-
     }
 
     private void Start()
@@ -36,12 +36,14 @@ public class ChangeVolume : MonoBehaviour
         OnSetSFXVolume();
     }
 
+
     public void OnSetMasterVolume()
     {
         float volume = Mathf.Clamp(_masterSlider.value, 0.001f, 1.0f);
         _masterVolume = volume;
         _myMixer.SetFloat("Master", Mathf.Log10(volume) * 20);
     }
+
 
     public void OnSetMusicVolume()
     {
@@ -50,12 +52,14 @@ public class ChangeVolume : MonoBehaviour
         _myMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
     }
 
+
     public void OnSetSFXVolume()
     {
         float volume = Mathf.Clamp(_sfxSlider.value, 0.001f, 1.0f);
         _sfxVolume = volume;
         _myMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
     }
+
 
     public void OnMasterToggle()
     {
@@ -91,6 +95,7 @@ public class ChangeVolume : MonoBehaviour
         }
     }
 
+
     public void OnMusicToggle()
     {
         if (_isOnMusic)
@@ -106,6 +111,7 @@ public class ChangeVolume : MonoBehaviour
             OnSetMusicVolume();
         }
     }
+
 
     public void OnSFXToggle()
     {
@@ -123,6 +129,7 @@ public class ChangeVolume : MonoBehaviour
         }
     }
 
+
     public void SetState(bool p_Flag)
     {
         _masterSlider.interactable = p_Flag;
@@ -132,6 +139,7 @@ public class ChangeVolume : MonoBehaviour
         _musicToggle.interactable = p_Flag;
         _sfxToggle.interactable = p_Flag;
     }
+
 
     private void OnDisable()
     {

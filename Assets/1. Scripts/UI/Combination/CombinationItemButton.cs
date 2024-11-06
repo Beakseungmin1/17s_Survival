@@ -1,26 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System;
 
 
 public class CombinationItemButton : MonoBehaviour
 {
-    [Header("TargetUI")]
+    [Header("Target UI")]
     [SerializeField] private TextMeshProUGUI _tartgetItemName;
     [SerializeField] private Image _targetItemImage;
     [SerializeField] private TextMeshProUGUI _needItems;
     [SerializeField] private Button makeItemButton;
 
-    [Header("NeedItemUI")]
+    [Header("NeedItem UI")]
     [SerializeField] private Image[] _needImages;
     [SerializeField] private TextMeshProUGUI[] _needCount;
 
-
     [Space(20)]
-    [Header("Item")]
+    [Header("Target Item")]
     [SerializeField] private DecorationSO _targetItem;
     private CombinationItem _combinationItem;
 
@@ -28,6 +24,7 @@ public class CombinationItemButton : MonoBehaviour
     private void Awake()
     {
         _combinationItem = GetComponentInParent<CombinationItem>();
+
         makeItemButton.onClick.AddListener(OnMakeItem);
     }
 
@@ -36,6 +33,7 @@ public class CombinationItemButton : MonoBehaviour
     {
         _tartgetItemName.text = _targetItem.itemName;
         _targetItemImage.sprite = _targetItem.itemIcon;
+
         SetNeedItemText();
     }
 

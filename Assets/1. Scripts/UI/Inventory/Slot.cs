@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
-using Unity.VisualScripting;
 
 
 public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
@@ -13,21 +10,26 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public ItemSO item;
     public int itemCount;
 
-
     [Space(10)]
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI _itemCountText;
     [SerializeField] Image _itemImage = null;
+
+    [Space(10)]
+    [Header("Each Slot Type")]
     [SerializeField] ItemType _slotAllowedItemType;
     [SerializeField] EquipmentType _slotAllowedEquipmentType;
 
 
+    #region  Item Control In Slot
     public void AddItem(ItemSO item, int quntity = 1)
     {
         this.item = item;
         itemCount = quntity;
+
         _itemImage.gameObject.SetActive(true);
         _itemImage.sprite = item.itemIcon;
+
         if (item.itemType != ItemType.Equipment || item.itemType != ItemType.Weapon)
         {
             _itemCountText.text = itemCount.ToString();
@@ -49,38 +51,40 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     }
 
 
-    private void SetColor(float alpha)
-    {
-        Color color = _itemImage.color;
-        color.a = alpha;
-        _itemImage.color = color;
-    }
-
-
     private void ClearSlot()
     {
         item = null;
         itemCount = 0;
         _itemImage.sprite = null;
         _itemCountText.text = string.Empty;
-        _itemImage.gameObject.SetActive(false);
         SetColor(0);
+        _itemImage.gameObject.SetActive(false);
     }
 
 
-    public void OnBeginDrag(PointerEventData eventData)// when Drag Start on a slot that has this script
+    private void SetColor(float alpha) // if slot itemSO != null, change item sprite alpha
+    {
+        Color color = _itemImage.color;
+        color.a = alpha;
+        _itemImage.color = color;
+    }
+    #endregion
+
+
+    #region Item Darg Interface
+    public void OnBeginDrag(PointerEventData eventData) // when drag start on a slot that has this script
     {
         if (item != null)
         {
             DragSlot.Instance.dargSlot = this;
             DragSlot.Instance.itemCount = itemCount;
-            DragSlot.Instance.DragSetImage(item.itemIcon);
+            DragSlot.Instance.DragSlotSetImage(item.itemIcon);
             DragSlot.Instance.transform.position = eventData.position;
         }
     }
 
 
-    public void OnDrag(PointerEventData eventData) // when Draging
+    public void OnDrag(PointerEventData eventData) // when draging
     {
         if (item != null)
         {
@@ -95,7 +99,7 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     }
 
 
-    public void OnDrop(PointerEventData eventData) // when Drag Ended on slot
+    public void OnDrop(PointerEventData eventData) // when drag ended on slot
     {
         if (DragSlot.Instance.dargSlot != null)
         {
@@ -112,14 +116,15 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             }
         }
     }
+    #endregion
 
 
-    private void ChangeSlot()
+    private void ChangeSlot() // change the item location if drop location is a slot but slot type is all
     {
         ItemSO tempItem = item;
         int tempCount = itemCount;
 
-        AddItem(DragSlot.Instance.dargSlot.item, DragSlot.Instance.itemCount); // draged item add this slot
+        AddItem(DragSlot.Instance.dargSlot.item, DragSlot.Instance.itemCount);
 
         if (tempItem != null)
         {
@@ -131,16 +136,16 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         }
     }
 
-    private void ChangeSlotEquipmentType()
-    {
 
+    private void ChangeSlotEquipmentType() // change the item location if drop location is a slot but slot type is equipment
+    {
         ItemSO tempItem = item;
         int tempCount = itemCount;
 
         if (DragSlot.Instance.dargSlot.item is EquipmentSO)
         {
             EquipmentSO equipmentSO = (EquipmentSO)DragSlot.Instance.dargSlot.item;
-            Debug.Log("여기까지 실행됨");
+
             if (_slotAllowedEquipmentType == equipmentSO.equipmentType)
             {
                 AddItem(DragSlot.Instance.dargSlot.item, DragSlot.Instance.itemCount);
@@ -170,8 +175,7 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
     private void ClearDragSlot()
     {
-        DragSlot.Instance.SetColor(0);
+        DragSlot.Instance.DragSlotSetColor(0);
         DragSlot.Instance.dargSlot = null;
     }
-
 }

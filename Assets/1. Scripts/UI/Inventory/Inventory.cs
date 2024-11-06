@@ -1,18 +1,18 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 
 public class Inventory : MonoBehaviour
 {
-    public ItemSO testItem;
-
-
+    [Header("UI")]
     [SerializeField] private GameObject _slotsParent;
     [SerializeField] private GameObject _extendUI;
+
+    [Header("Slots Data")]
     [HideInInspector] public Slot[] slots = new Slot[26];
+
+    [Tooltip("player object transform in hierarchy")]
+    [SerializeField] private Transform _playerTransform;
 
 
     private void Awake()
@@ -64,8 +64,8 @@ public class Inventory : MonoBehaviour
     }
 
 
-    private void ThrowItem(ItemSO item)
+    private void ThrowItem(ItemSO item) // when the inventory is full
     {
-        // Instantiate(item, transform.position, quaternion.identity); // tf.positon -> playerPositon
+        Instantiate(item, _playerTransform.transform.position + new Vector3(0, 0, 1), Quaternion.identity);
     }
 }

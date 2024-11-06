@@ -122,7 +122,7 @@ public class UsingSlotItem : MonoBehaviour
             {
                 if (build.CheckNeedItem(_inventory.slots[soltNumber].item))
                 {
-                    build.SetIngredient(_inventory.slots[soltNumber].item);
+                    build.AddIngredientCount(_inventory.slots[soltNumber].item);
                     _inventory.slots[soltNumber].SetSlotCount(-1);
                     return;
                 }

@@ -10,8 +10,10 @@ public class CraftingPreview : MonoBehaviour
     [SerializeField] private int _layerGround;
     [SerializeField] private int _IGNORE_RAYCAST_LAYER = 2;
 
+    [Header("If Can Build Place Or Not, Change Preview Building Material")]
     [SerializeField] private Material _green;
     [SerializeField] private Material _red;
+
     public bool isBuilded;
 
 
@@ -37,6 +39,7 @@ public class CraftingPreview : MonoBehaviour
         }
     }
 
+
     public void SetMaterial(Material material)
     {
         foreach (Transform child in this.transform)
@@ -50,13 +53,14 @@ public class CraftingPreview : MonoBehaviour
 
             child.GetComponent<Renderer>().materials = newMaterials;
         }
-
     }
+
 
     public bool isBuildable()
     {
         return _colliders.Count == 0;
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -65,7 +69,6 @@ public class CraftingPreview : MonoBehaviour
         if (other.gameObject.layer != _layerGround || other.gameObject.layer != _IGNORE_RAYCAST_LAYER)
         {
             _colliders.Add(other);
-
         }
     }
 
@@ -76,8 +79,6 @@ public class CraftingPreview : MonoBehaviour
         if (other.gameObject.layer != _layerGround || other.gameObject.layer != _IGNORE_RAYCAST_LAYER)
         {
             _colliders.Remove(other);
-
         }
     }
-
 }

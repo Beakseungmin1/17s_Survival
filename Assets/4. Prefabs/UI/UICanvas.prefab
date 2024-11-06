@@ -285,7 +285,7 @@ RectTransform:
   m_Father: {fileID: 2474336398975161730}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -471,7 +471,7 @@ RectTransform:
   m_Father: {fileID: 493972222294368006}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1136,7 +1136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5557347048162002728}
   m_Layer: 5
-  m_Name: ExtendUI
+  m_Name: ExtendSlots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1611,7 +1611,7 @@ MonoBehaviour:
   - {fileID: 4689560309036385760}
   - {fileID: 1608408386431694215}
   - {fileID: 3822294988475579070}
-  buttonParent: {fileID: 8092268046020827072}
+  _buttonParent: {fileID: 8092268046020827072}
 --- !u!223 &771643832879159267
 Canvas:
   m_ObjectHideFlags: 0
@@ -1881,7 +1881,7 @@ GameObject:
   - component: {fileID: 1748238970944192657}
   - component: {fileID: 1610172176647519645}
   m_Layer: 5
-  m_Name: ExtendSlots
+  m_Name: Slots_Extend
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2491,13 +2491,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4c988dcb005b91a4f8ded46bc5cda370, type: 2}
   - {fileID: 11400000, guid: 26bc4f1651e509e4984ad1f76d38dcfc, type: 2}
   - {fileID: 11400000, guid: db86943db7d46354db00e13d6ca4beab, type: 2}
-  _whiteMaterial: {fileID: 2100000, guid: 8fc39f4b941898848aa25fab5406de50, type: 2}
   _isPreviewActive: 0
   _layerMask:
     serializedVersion: 2
     m_Bits: 16384
   _range: 10
   _playerTransform: {fileID: 0}
+  _whiteMaterial: {fileID: 2100000, guid: 8fc39f4b941898848aa25fab5406de50, type: 2}
 --- !u!1 &2370423766577217224
 GameObject:
   m_ObjectHideFlags: 0
@@ -3883,7 +3883,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76fd7a2264dac2341a2010ebde1a5597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testItem: {fileID: 11400000, guid: dc97634486befff4ab270c8b961489c3, type: 2}
   _slotsParent: {fileID: 3511978642418186418}
   _extendUI: {fileID: 1291653393755866047}
   slots:
@@ -3913,6 +3912,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _playerTransform: {fileID: 0}
 --- !u!1 &3781925645902806084
 GameObject:
   m_ObjectHideFlags: 0
@@ -5279,7 +5279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4613319585964391727
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5452,7 +5452,7 @@ RectTransform:
   m_Father: {fileID: 1674203382327894852}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
