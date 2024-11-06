@@ -30,5 +30,7 @@ public enum Music
 {
     DefaultMusic,
     River,
-    Sea
+    Sea,
+    Snow,
+    Rain
 }
