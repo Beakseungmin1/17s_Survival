@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EscapeBoat : MonoBehaviour
+public class EscapeBoat : MonoBehaviour, Iinteractable
 {
     public GameObject ending;
     public bool isEnd;
