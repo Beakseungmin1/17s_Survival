@@ -74,6 +74,8 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     #region Item Darg Interface
     public void OnBeginDrag(PointerEventData eventData) // when drag start on a slot that has this script
     {
+        AudioManager.Instance.PlaySFX(UISFX.Click);
+
         if (item != null)
         {
             DragSlot.Instance.dargSlot = this;
@@ -101,6 +103,8 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
     public void OnDrop(PointerEventData eventData) // when drag ended on slot
     {
+        AudioManager.Instance.PlaySFX(UISFX.OpenUI);
+
         if (DragSlot.Instance.dargSlot != null)
         {
             if (_slotAllowedItemType == ItemType.All)

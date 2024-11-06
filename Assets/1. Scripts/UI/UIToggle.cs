@@ -44,6 +44,8 @@ public class UIToggle : MonoBehaviour
     #region UI Open & Close 
     public void OnOpenUI()
     {
+        AudioManager.Instance.PlaySFX(UISFX.CloseUI);
+
         if (!isUIOpen)
         {
             isUIOpen = true;
@@ -67,6 +69,8 @@ public class UIToggle : MonoBehaviour
 
     public void OnOpenInventoryUI()
     {
+        AudioManager.Instance.PlaySFX(UISFX.CloseUI);
+
         for (int i = 0; i < _uiGroup.Length; i++)
         {
             if (i == (int)UIEnums.Inventory)
@@ -82,6 +86,8 @@ public class UIToggle : MonoBehaviour
 
     public void OnOpenCombinationUI()
     {
+        AudioManager.Instance.PlaySFX(UISFX.CloseUI);
+
         for (int i = 0; i < _uiGroup.Length; i++)
         {
             if (i == (int)UIEnums.Combination)
@@ -97,6 +103,8 @@ public class UIToggle : MonoBehaviour
 
     public void OnOpenCraftingUI()
     {
+        AudioManager.Instance.PlaySFX(UISFX.CloseUI);
+
         for (int i = 0; i < _uiGroup.Length; i++)
         {
             if (i == (int)UIEnums.Crafting)
@@ -112,6 +120,8 @@ public class UIToggle : MonoBehaviour
 
     public void OnOpenSettingUI()
     {
+        AudioManager.Instance.PlaySFX(UISFX.CloseUI);
+
         for (int i = 0; i < _uiGroup.Length; i++)
         {
             if (i == (int)UIEnums.Setting)
