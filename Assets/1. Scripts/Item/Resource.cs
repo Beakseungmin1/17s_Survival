@@ -9,13 +9,16 @@ public class Resource : MonoBehaviour
     public int howManyGive; // 아이템 몇개주는지
     public float resourceHP; // 리소스체력
     public float initialHP;
-    private ResourceGenerator ResourceGenerator;
+    public float delay;
 
+    private Renderer[] resourceRenderer;
+    private Collider resourceCollider;
 
     private void Awake()
     {
-        ResourceGenerator = GetComponentInParent<ResourceGenerator>();
         resourceHP = initialHP;
+        resourceRenderer = gameObject.GetComponentsInChildren<Renderer>();
+        resourceCollider = gameObject.GetComponent<Collider>();
     }
 
     public void Gether(float Damage)
@@ -32,8 +35,32 @@ public class Resource : MonoBehaviour
 
                 Instantiate(itemToGive.dropPrefab, transform.position + Vector3.up * (i + 2), randomRotation);
             }
-            ResourceGenerator.RespawnResource(this);
-            gameObject.SetActive(false);
+            RespawnResource();
+            foreach(Renderer renderer in resourceRenderer)
+            {
+                renderer.enabled = false;
+            }
+            resourceCollider.enabled = false;
         }
+    }
+
+    private void RespawnResource()
+    {
+        StartCoroutine(RespawnResourceCoroutine());
+    }
+
+    private IEnumerator RespawnResourceCoroutine()
+    {
+        yield return new WaitForSeconds(delay);
+        ResourceActivation();
+    }
+    private void ResourceActivation()
+    {
+        resourceHP = initialHP;
+        foreach (Renderer renderer in resourceRenderer)
+        {
+            renderer.enabled = true;
+        }
+        resourceCollider.enabled = true;
     }
 }

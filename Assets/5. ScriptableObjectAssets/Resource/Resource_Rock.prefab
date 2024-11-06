@@ -268,6 +268,7 @@ MonoBehaviour:
   howManyGive: 3
   resourceHP: 10
   initialHP: 10
+  DELAY: 10
 --- !u!1 &8146245471365275655
 GameObject:
   m_ObjectHideFlags: 0
