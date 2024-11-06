@@ -3996,7 +3996,7 @@ MonoBehaviour:
   JumpPower: 80
   groundLayerMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 116145
   cameraContainer: {fileID: 2682226721966156742}
   FirstCamera: {fileID: 8114369768885316755}
   ThirdCamera: {fileID: 4873991006037674565}
@@ -4020,6 +4020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiCondition: {fileID: 0}
   noHungerHealthDecay: 3
+  temperatureHealthDecay: 0
 --- !u!114 &4687738990005205220
 MonoBehaviour:
   m_ObjectHideFlags: 0
