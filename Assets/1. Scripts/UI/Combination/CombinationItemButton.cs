@@ -17,7 +17,7 @@ public class CombinationItemButton : MonoBehaviour
 
     [Space(20)]
     [Header("Target Item")]
-    [SerializeField] private DecorationSO _targetItem;
+    [SerializeField] private EquipmentSO _targetItem;
     private CombinationItem _combinationItem;
 
 
