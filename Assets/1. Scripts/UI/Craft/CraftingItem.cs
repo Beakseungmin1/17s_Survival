@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class CraftingItem : MonoBehaviour
 {
+    private PlayerController _playerController;
     private UIToggle uIToggle;
     [SerializeField] private BuildingItemSO[] _buildingItems;
     private GameObject _previewBuilding;
@@ -22,6 +23,7 @@ public class CraftingItem : MonoBehaviour
     {
         _playerTransform = Camera.main.transform;
         uIToggle = GetComponentInParent<UIToggle>();
+        _playerController = FindAnyObjectByType<PlayerController>();
     }
 
 
@@ -95,7 +97,7 @@ public class CraftingItem : MonoBehaviour
         }
     }
 
-    public void OnSlotClick(int _slotNumber)
+    public void OnSlotClick(int _slotNumber) // mouse hide
     {
         if (_isPreviewActive == true)
         {
@@ -106,6 +108,8 @@ public class CraftingItem : MonoBehaviour
         _previewBuilding = Instantiate(_buildingItems[_slotNumber].previewItemPrefabs, _playerTransform.position + _playerTransform.forward, quaternion.identity);
         _isPreviewActive = true;
         uIToggle.OnOpenUI();
+
+        _playerController.ToggleCursor();
     }
 
     // private void OnDrawGizmos()
