@@ -9,4 +9,5 @@ public class EquipmentSO : ItemSO
     public EquipmentType equipmentType;
     public int IncreaseHpStat;
     public int IncreaseStaminaStat;
+    public NeedItem[] needItems;
 }
