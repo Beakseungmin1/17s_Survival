@@ -1,6 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class CombinationItem : MonoBehaviour
 {
@@ -28,6 +28,9 @@ public class CombinationItem : MonoBehaviour
                     {
                         quantity++;
                         itemsToConsume[i] = item.needItems[j].needCount;
+
+                        // dictionary key = it might not start from 0 in slots[]
+                        // dictionary value = item.needItems[j].needCount
                     }
                     else
                     {

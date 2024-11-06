@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: WoodRoof2
   itemDescription: WoodRoof2WoodRoof2
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 63a177a576f85a347b4757edfb10f580, type: 3}
   itemType: 2
   itemPrefabs: {fileID: 4175837530486538758, guid: c57a85e10c1be494b858955747884746, type: 3}
   isCanStack: 0
   maxStack: 0
+  EquipPrefab: {fileID: 0}
   previewItemPrefabs: {fileID: 95007063557622840, guid: 0960f978cd2160f41b961e2838ae92dc, type: 3}

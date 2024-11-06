@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Wall2
   itemDescription: Wall2Wall2
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 181a715e2584d794495936e184058778, type: 3}
   itemType: 2
   itemPrefabs: {fileID: 2938323403127053058, guid: d6960a1126202194ea399f03bad9cccf, type: 3}
   isCanStack: 0
   maxStack: 0
+  EquipPrefab: {fileID: 0}
   previewItemPrefabs: {fileID: 4009358421778618420, guid: f28ee8ba29aff2141adb6ae509bf6e22, type: 3}

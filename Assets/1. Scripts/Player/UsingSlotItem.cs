@@ -32,7 +32,7 @@ public class UsingSlotItem : MonoBehaviour
 
     public void OnClickLeftMouseButton()
     {
-        if (_inventory.IsOpen()) return;
+        if (UIToggle.isUIOpen) return;
         if (_craftingItem._isPreviewActive)
         {
             _craftingItem.Build();
@@ -70,10 +70,13 @@ public class UsingSlotItem : MonoBehaviour
             case ItemType.Consumable:
                 UseConsumableItem(soltNumber);
                 break;
-            case ItemType.ReSource:
+            case ItemType.Resource:
                 InteractionPreviewBuilding(soltNumber);
                 break;
             case ItemType.Weapon:
+                Attack(soltNumber);
+                break;
+            case ItemType.Tool:
                 Attack(soltNumber);
                 break;
             default:
@@ -122,7 +125,7 @@ public class UsingSlotItem : MonoBehaviour
             {
                 if (build.CheckNeedItem(_inventory.slots[soltNumber].item))
                 {
-                    build.SetIngredient(_inventory.slots[soltNumber].item);
+                    build.AddIngredientCount(_inventory.slots[soltNumber].item);
                     _inventory.slots[soltNumber].SetSlotCount(-1);
                     return;
                 }
@@ -133,25 +136,28 @@ public class UsingSlotItem : MonoBehaviour
 
     private void Attack(int soltNumber)
     {
-        //ItemSO item = _inventory.slots[soltNumber].item;
-        //Ray ray = _camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-        //RaycastHit hit;
+        ItemSO item = _inventory.slots[soltNumber].item;
+        Ray ray = _camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        RaycastHit hit;
 
-        //// Damage and range are given to each weapon
-        //// Damage and resource damage are different values
-        //if (Physics.Raycast(ray, out hit, attackDistance))
-        //{
-        //    // If you want to use it, create a Resource script for the lecture.
-        //    if (item.itemType == ItemType.Tool && hit.collider.TryGetComponent(out Resource resource))
-        //    {
-        //        resource.Gather(hit.point, hit.normal);
-        //    }
+        // Damage and range are given to each weapon
+        // Damage and resource damage are different values
+        if (item is WeaponSO weapon)
+        {
+            if (Physics.Raycast(ray, out hit, weapon.AttackDistance))
+            {
+                // If you want to use it, create a Resource script for the lecture.
+                if (weapon.itemType == ItemType.Tool && hit.collider.TryGetComponent(out Resource resource))
+                {
+                    resource.Gether(weapon.ResourceDamage);
+                }
 
-        //    if (hit.collider.TryGetComponent(out NPC npc))
-        //    {
-        //        npc.TakePhysicalDamage(damage);
-        //    }
-        //}
+                if (hit.collider.TryGetComponent(out NPC npc))
+                {
+                    npc.TakePhysicalDamage(weapon.Damage);
+                }
+            }
+        }
     }
 
 

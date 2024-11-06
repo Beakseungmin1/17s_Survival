@@ -214,6 +214,7 @@ public class NPC : MonoBehaviour, IDamagalbe
 
     public void TakePhysicalDamage(float damage)
     {
+        Debug.Log("hit!");
         curHealth -= damage;
         if (curHealth <= 0)
         {

@@ -20,4 +20,5 @@ MonoBehaviour:
   isCanStack: 1
   maxStack: 10
   EquipPrefab: {fileID: 0}
+  dropPrefab: {fileID: 2358439786179482953, guid: 70a4c57110a0ee849a7d4751a646915d, type: 3}
   hasNatureResource: 0
