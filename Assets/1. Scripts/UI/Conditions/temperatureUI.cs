@@ -7,9 +7,10 @@ public class temperatureUI : MonoBehaviour
 {
     public Image Hotimage;
     public Image Coldimage;
-    public float flashSpeed;
+    public float FadeSpeed = 0.2f;
 
-    float totalAlpha;
+    float hotAlpha;
+    float coldAlpha;
 
     private PlayerCondition condition;
 
@@ -22,50 +23,48 @@ public class temperatureUI : MonoBehaviour
 
     private void Update()
     {
-        if (condition.Gettemperature() >= 60f)
+        if (condition.Gettemperature() >= 70f)
         {
             FadeIn(Hotimage);
         }
-        else if (condition.Gettemperature() <= 40f)
+        else if (condition.Gettemperature() <= 30f)
         {
             FadeIn(Coldimage);
+        }
+        else
+        {
+            FadeOut(Hotimage);
+            FadeOut(Coldimage);
         }
     }
 
     public void FadeIn(Image image)
     {
-        if (totalAlpha < 90f / 255f)
+        if (image == Hotimage && hotAlpha < 90f / 255f)
         {
-            totalAlpha += 0.2f * Time.deltaTime;
-            image.color = new Color(255f / 255f, 132f / 255f, 57f / 255f, totalAlpha);
+            hotAlpha += FadeSpeed * Time.deltaTime;
+            image.color = new Color(image.color.r, image.color.g, image.color.b, hotAlpha);
+        }
+        else if (image == Coldimage && coldAlpha < 90f / 255f)
+        {
+            coldAlpha += FadeSpeed * Time.deltaTime;
+            image.color = new Color(image.color.r, image.color.g, image.color.b, coldAlpha);
         }
     }
 
-    //public void Flash()
-    //{
-    //    if (coroutine != null)
-    //    {
-    //        StopCoroutine(coroutine);
-    //    }
-
-
-    //    image.enabled = true;
-    //    image.color = new Color(1f, 100f / 255f, 100f / 255f);
-    //    coroutine = StartCoroutine(FadeAway());
-    //}
-
-    //private IEnumerator FadeAway()
-    //{
-    //    float startAlpha = 0.3f;
-    //    float a = startAlpha;
-
-    //    while (a > 0)
-    //    {
-    //        a -= (startAlpha / flashSpeed) * Time.deltaTime;
-    //        image.color = new Color(1f, 100f / 255f, 100f / 255f, a);
-    //        yield return null;
-    //    }
-
-    //    image.enabled = false;
-    //}
+    public void FadeOut(Image image)
+    {
+        if (image == Hotimage && hotAlpha > 0f)
+        {
+            hotAlpha -= FadeSpeed * Time.deltaTime;
+            hotAlpha = Mathf.Clamp(hotAlpha, 0f, 90f / 255f);
+            image.color = new Color(image.color.r, image.color.g, image.color.b, hotAlpha);
+        }
+        else if (image == Coldimage && coldAlpha > 0f)
+        {
+            coldAlpha -= FadeSpeed * Time.deltaTime;
+            coldAlpha = Mathf.Clamp(coldAlpha, 0f, 90f / 255f);
+            image.color = new Color(image.color.r, image.color.g, image.color.b, coldAlpha);
+        }
+    }
 }

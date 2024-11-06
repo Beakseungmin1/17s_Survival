@@ -20,7 +20,7 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
     Condition hunger { get { return uiCondition.hunger; } }
     Condition water { get { return uiCondition.water; } }
     Condition stamina { get { return uiCondition.stamina; } }
-    public Condition temperature { get { return uiCondition.temperature; } }
+    Condition temperature { get { return uiCondition.temperature; } }
 
     private bool isDead = false;
 
@@ -84,9 +84,14 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
         return temperature.curValue;
     }
 
-    public void Settemperature(float value)
+    public void Addtemperature(float value)
     {
-        temperature.curValue = value;
+        temperature.Add(value);
+    }
+
+    public void Subtracttemperature(float value)
+    {
+        temperature.Subtract(value);
     }
 
     public void Heal(float amount)
