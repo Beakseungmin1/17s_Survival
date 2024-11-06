@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class UIToggle : MonoBehaviour
 {
-    public static bool isUIOpen; // if true, attck/build/interaction is impossible
-    [SerializeField] PlayerController _playerController;
+    public static bool isUIOpen = false; // if true, attck/build/interaction is impossible
+    PlayerController _playerController;
     [SerializeField] Image[] _uiGroup;
     [SerializeField] Button[] _uiToggleButtons;
     [SerializeField] GameObject buttonParent;
@@ -22,7 +22,7 @@ public class UIToggle : MonoBehaviour
 
     private void Start()
     {
-        _playerController.inventory += OnOpenUI;
+        _playerController.inventory += OnPressedTabKey;
 
         _uiToggleButtons[(int)UIEnums.Inventory].onClick.AddListener(OnOpenInventoryUI);
         _uiToggleButtons[(int)UIEnums.Combination].onClick.AddListener(OnOpenCombinationUI);
@@ -41,7 +41,6 @@ public class UIToggle : MonoBehaviour
             isUIOpen = true;
             _uiGroup[(int)UIEnums.Inventory].gameObject.SetActive(true);
             buttonParent.gameObject.SetActive(true);
-
         }
         else
         {

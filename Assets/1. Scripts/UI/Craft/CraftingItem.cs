@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class CraftingItem : MonoBehaviour
 {
+    private UIToggle uIToggle;
     [SerializeField] private BuildingItemSO[] _buildingItems;
-    [SerializeField] private GameObject craftingPanel;
     private GameObject _previewBuilding;
     [SerializeField] private Material _whiteMaterial;
     public bool _isPreviewActive;
@@ -21,6 +21,7 @@ public class CraftingItem : MonoBehaviour
     private void Awake()
     {
         _playerTransform = Camera.main.transform;
+        uIToggle = GetComponentInParent<UIToggle>();
     }
 
 
@@ -90,7 +91,7 @@ public class CraftingItem : MonoBehaviour
             Destroy(_previewBuilding);
             _isPreviewActive = false;
             _previewBuilding = null;
-            craftingPanel.gameObject.SetActive(false);
+            uIToggle.OnOpenUI();
         }
     }
 
@@ -104,7 +105,7 @@ public class CraftingItem : MonoBehaviour
 
         _previewBuilding = Instantiate(_buildingItems[_slotNumber].previewItemPrefabs, _playerTransform.position + _playerTransform.forward, quaternion.identity);
         _isPreviewActive = true;
-        craftingPanel.gameObject.SetActive(false);
+        uIToggle.OnOpenUI();
     }
 
     // private void OnDrawGizmos()
