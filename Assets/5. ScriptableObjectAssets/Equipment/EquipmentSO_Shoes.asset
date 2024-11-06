@@ -20,6 +20,10 @@ MonoBehaviour:
   isCanStack: 0
   maxStack: 0
   EquipPrefab: {fileID: 0}
+  dropPrefab: {fileID: 0}
   equipmentType: 4
   IncreaseHpStat: 20
   IncreaseStaminaStat: 20
+  needItems:
+  - needItem: {fileID: 11400000, guid: 69a653100e1192440a1a2ca16501a57d, type: 2}
+    needCount: 3
