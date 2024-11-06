@@ -148,6 +148,15 @@ public class Slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 int hpValue = equipmentSO.IncreaseHpStat;
                 int staminaValue = equipmentSO.IncreaseStaminaStat;
 
+                if (tempItem != null)
+                {
+                    DragSlot.Instance.dargSlot.AddItem(tempItem, tempCount);
+                }
+                else
+                {
+                    DragSlot.Instance.dargSlot.ClearSlot();
+                }
+
                 // MethodName(hpValue, staminaValue);
                 // increase hp or stamina maxValue
             }
