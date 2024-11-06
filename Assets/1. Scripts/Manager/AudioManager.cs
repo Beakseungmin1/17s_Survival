@@ -116,4 +116,18 @@ public class AudioManager : ConvertSingleton<AudioManager>
         }
         Debug.Log("There is no name called" + music);
     }
+
+    public void StopMusic(Music music)
+    {
+        for (int i = 0; i < _music.Length; i++)
+        {
+            if (music.Equals(_music[i].name))
+            {
+                _musicPlayer.clip = _music[i].clip;
+                _musicPlayer.Stop();
+                return;
+            }
+        }
+        Debug.Log("There is no name called" + music);
+    }
 }

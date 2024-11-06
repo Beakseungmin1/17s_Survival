@@ -52,10 +52,12 @@ public class WeatherManager : MonoBehaviour
             case WeatherState.Snow:
                 Snow.gameObject.SetActive(true);
                 SnowParticle.Play();
+                AudioManager.Instance.PlayMusic(Music.Snow);
                 break;
             case WeatherState.Rain:
                 Rain.gameObject.SetActive(true);
                 RainParticle.Play();
+                AudioManager.Instance.PlayMusic(Music.Rain);
                 break;
         }
     }
@@ -67,10 +69,12 @@ public class WeatherManager : MonoBehaviour
             case WeatherState.Snow:
                 SnowParticle.Stop();
                 Snow.gameObject.SetActive(false);
+                AudioManager.Instance.StopMusic(Music.Snow);
                 break;
             case WeatherState.Rain:
                 RainParticle.Stop();
                 Rain.gameObject.SetActive(false);
+                AudioManager.Instance.StopMusic(Music.Rain);
                 break;
         }
     }
