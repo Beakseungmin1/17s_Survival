@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d5a070c3757e984a9b7c349117ea97b, type: 3}
+  m_Name: Building_Boat
+  m_EditorClassIdentifier: 
+  itemName: boat
+  itemDescription: boatv
+  itemIcon: {fileID: 21300000, guid: 1f2ba90ff15768144b112dc9260e7a00, type: 3}
+  itemType: 2
+  itemPrefabs: {fileID: 6872243824899630401, guid: 17c56660cef6fcc4088e1f30292e8e4a, type: 3}
+  isCanStack: 0
+  maxStack: 0
+  EquipPrefab: {fileID: 0}
+  dropPrefab: {fileID: 0}
+  previewItemPrefabs: {fileID: 6872243824899630401, guid: b949ebf05cc0bd04daa636fa80e84e24, type: 3}
