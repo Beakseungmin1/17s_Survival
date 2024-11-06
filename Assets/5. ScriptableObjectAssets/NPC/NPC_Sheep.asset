@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcType: 0
   npcName: Sheep
-  maxHealth: 3
+  maxHealth: 30
   walkSpeed: 2
   runSpeed: 4
   fieldOfView: 120
-  npcPrefabs: {fileID: 6677094591406809411, guid: 0b63a9951fc7939448f9b87f206d087e, type: 3}
+  dropOnDeath:
+  - {fileID: 11400000, guid: a5c100c0f72c61e4dae3a8fc9226c123, type: 2}
   detectDistance: 5
   minWanderDistance: 2
   maxWanderDistance: 10

@@ -14,11 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcType: 1
   npcName: BigBear
-  maxHealth: 10
+  maxHealth: 150
   walkSpeed: 1
   runSpeed: 3
   fieldOfView: 120
-  npcPrefabs: {fileID: 2449866788932894196, guid: 64aa144eab0cd9f40bcce17f59c80c46, type: 3}
+  dropOnDeath:
+  - {fileID: 11400000, guid: e6928fb5386800740a1476e5ea1f5c2f, type: 2}
+  - {fileID: 11400000, guid: e6928fb5386800740a1476e5ea1f5c2f, type: 2}
+  - {fileID: 11400000, guid: 6d78453133d35754ebc0133723c33825, type: 2}
+  - {fileID: 11400000, guid: 6d78453133d35754ebc0133723c33825, type: 2}
+  - {fileID: 11400000, guid: d6f712048f8203c48b086cadee58f9c3, type: 2}
+  - {fileID: 11400000, guid: d6f712048f8203c48b086cadee58f9c3, type: 2}
   detectDistance: 6
   minWanderDistance: 2
   maxWanderDistance: 5

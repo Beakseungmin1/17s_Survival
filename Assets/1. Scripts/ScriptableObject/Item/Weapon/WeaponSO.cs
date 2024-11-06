@@ -9,5 +9,7 @@ public class WeaponSO : ItemSO
     public WeaponType WeaponType;
     public float Damage;
     public float AttackDistance;
+
+    [Header("Tool")]
     public float ResourceDamage;
 }

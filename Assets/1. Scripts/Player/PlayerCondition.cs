@@ -67,7 +67,7 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
             Invoke("Die", 0);
         }
 
-        if (temperature.curValue <= 40f || temperature.curValue >= 60f)
+        if (temperature.curValue <= 30f || temperature.curValue >= 70f)
         {
             health.Subtract(temperatureHealthDecay * Time.deltaTime);
         }

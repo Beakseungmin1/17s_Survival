@@ -72,6 +72,7 @@ public class CraftingPreview : MonoBehaviour
         }
     }
 
+
     private void OnTriggerExit(Collider other)
     {
         if (isBuilded) return;

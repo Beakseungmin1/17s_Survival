@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcType: 1
   npcName: Native
-  maxHealth: 10
+  maxHealth: 70
   walkSpeed: 3
   runSpeed: 5
   fieldOfView: 150
+  dropOnDeath:
+  - {fileID: 11400000, guid: e6928fb5386800740a1476e5ea1f5c2f, type: 2}
   detectDistance: 10
   minWanderDistance: 2
   maxWanderDistance: 3

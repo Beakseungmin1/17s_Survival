@@ -56,6 +56,7 @@ public class CraftingItem : MonoBehaviour
     {
         if (Physics.Raycast(_playerTransform.position, _playerTransform.forward, out _hitInfo, _range, _layerMask))
         {
+            Debug.DrawRay(_playerTransform.position, _playerTransform.forward * _range, Color.red);
             if (_hitInfo.transform != null)
             {
                 Vector3 location = _hitInfo.point;
@@ -67,12 +68,14 @@ public class CraftingItem : MonoBehaviour
 
     public void Build() // instantiate preview prefabs last PreviewPositionUpdate()
     {
+        AudioManager.Instance.PlaySFX(PlayerSFX.Walk4);
+
         if (_previewBuilding.GetComponent<CraftingPreview>().isBuildable())
         {
             ItemInfomation itemInfomation = _previewBuilding.GetComponent<ItemInfomation>();
             GameObject tempPrefab = itemInfomation.item.itemPrefabs;
 
-            GameObject instantBuilding = Instantiate(_previewBuilding, _hitInfo.point + new Vector3(0, tempPrefab.transform.position.y, 0), quaternion.identity);
+            GameObject instantBuilding = Instantiate(_previewBuilding, _hitInfo.point, quaternion.identity);
 
             CraftingPreview craftingPreview = instantBuilding.GetComponent<CraftingPreview>();
 
