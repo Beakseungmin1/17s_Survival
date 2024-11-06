@@ -46,10 +46,10 @@ public class WeatherManager : MonoBehaviour
         switch (state)
         {
             case WeatherState.Snow:
-                condition.Subtracttemperature(1f * Time.deltaTime);
+                condition.Subtracttemperature(0.5f * Time.deltaTime);
                 break;
             case WeatherState.Rain:
-                condition.Subtracttemperature(1f * Time.deltaTime);
+                condition.Subtracttemperature(0.5f * Time.deltaTime);
                 break;
         }
     }
