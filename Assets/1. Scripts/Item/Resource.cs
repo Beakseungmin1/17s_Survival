@@ -18,7 +18,7 @@ public class Resource : MonoBehaviour
     {
         resourceHP = initialHP;
         resourceRenderer = gameObject.GetComponentsInChildren<Renderer>();
-        resourceCollider = gameObject.GetComponent<Collider>();
+        if(gameObject.TryGetComponent<Collider>(out Collider collider)) resourceCollider = collider;
     }
 
     public void Gether(float Damage)
@@ -35,12 +35,8 @@ public class Resource : MonoBehaviour
 
                 Instantiate(itemToGive.dropPrefab, transform.position + Vector3.up * (i + 2), randomRotation);
             }
+            ResourceDeactivation();
             RespawnResource();
-            foreach(Renderer renderer in resourceRenderer)
-            {
-                renderer.enabled = false;
-            }
-            resourceCollider.enabled = false;
         }
     }
 
@@ -54,6 +50,16 @@ public class Resource : MonoBehaviour
         yield return new WaitForSeconds(delay);
         ResourceActivation();
     }
+
+    private void ResourceDeactivation()
+    {
+        foreach (Renderer renderer in resourceRenderer)
+        {
+            renderer.enabled = false;
+        }
+        resourceCollider.enabled = false;
+    }
+
     private void ResourceActivation()
     {
         resourceHP = initialHP;
